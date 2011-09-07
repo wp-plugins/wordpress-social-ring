@@ -1,5 +1,5 @@
 === WordPress Social Ring ===
-Contributors: niccolotapparo
+Contributors: niccolo_tapparo
 Donate link: http://wordpress.altervista.org/
 Tags: Google +1, Facebook, Facebook Like, Facebook Share, Open Graph Meta Tag, Twitter, Retweet, Google+, Social Network
 Requires at least: 3.0
@@ -16,6 +16,10 @@ Let visitors share posts/pages on Facebook, Twitter and Google+.
 From admin page you can choose which button display: Facebook Like, Facebook Send, Facebook Share, Google +1 and Twitter. 
 
 You can also choose on which pages display them: Home, Posts, Pages, Categories and Archives.
+
+Follow me for the updates!
+http://www.facebook.com/pages/DrWordPress/166397626712895
+http://wordpress.altervista.org/
 
 == Installation ==
 

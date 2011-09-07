@@ -5,7 +5,7 @@ Description:
 Author: Niccol&ograve; Tapparo
 Version: 1.0
 Author URI: http://wordpress.altervista.org/
-Plugin URI: http://www.altervista.org/
+Plugin URI: http://wordpress.altervista.org/temi-realizzati/plugin-wordpress-social-ring/
 */
 
 /*
