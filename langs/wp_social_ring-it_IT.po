@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WordPress Social Ring\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-06 13:52+0100\n"
-"PO-Revision-Date: 2011-09-06 13:52+0100\n"
+"POT-Creation-Date: 2011-09-07 17:39+0100\n"
+"PO-Revision-Date: 2011-09-07 17:39+0100\n"
 "Last-Translator: Niccolo Tapparo\n"
 "Language-Team: AlterVista\n"
 "MIME-Version: 1.0\n"
@@ -26,8 +26,9 @@ msgid "Your free WordPress blog, <b>without space and traffic limits</b>"
 msgstr "Il tuo blog WordPress gratis, <b>senza limiti di spazio e traffico</b>"
 
 #: admin/admin.php:29
-msgid "http://en.altervista.org/create-free-blog.html"
-msgstr "http://it.altervista.org/crea-blog-gratis.php"
+#, fuzzy
+msgid "http://en.altervista.org/create-free-blog.html?ref=socialring"
+msgstr "http://it.altervista.org/crea-blog-gratis.php?ref=socialring"
 
 #: admin/admin.php:29
 msgid "Learn More"
@@ -102,7 +103,6 @@ msgid "Archive"
 msgstr "Archivi"
 
 #: admin/admin.php:206
-#, fuzzy
 msgid "Social Ring settings"
 msgstr "Impostazioni Social Ring"
 

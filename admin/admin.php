@@ -26,7 +26,7 @@ function wp_social_ring_setting_page() {
 					<h3 class="hndle"><span>AlterVista</span></h3> 
 					<div class="inside" id="avbox"> <!-- #avbox --> 
 						<p><?php _e('Your free WordPress blog, <b>without space and traffic limits</b>',WP_SOCIAL_RING); ?></p> 
-						<p class="avlink"><a class="avbtn" target="_blank" href="<?php _e('http://en.altervista.org/create-free-blog.html',WP_SOCIAL_RING); ?>"><b><?php _e('Learn More',WP_SOCIAL_RING); ?> &raquo;</b></a></p>				
+						<p class="avlink"><a class="avbtn" target="_blank" href="<?php _e('http://en.altervista.org/create-free-blog.html?ref=socialring',WP_SOCIAL_RING); ?>"><b><?php _e('Learn More',WP_SOCIAL_RING); ?> &raquo;</b></a></p>				
 					</div> 
 				</div>	
 			</div>
