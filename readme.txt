@@ -4,6 +4,7 @@ Donate link: http://wordpress.altervista.org/
 Tags: Google +1, Facebook, Facebook Like, Facebook Share, Open Graph Meta Tag, Twitter, Retweet, Google+, Social Network
 Requires at least: 3.0
 Tested up to: 3.2
+Version: 1.1
 Stable tag: trunk
 
 == Description ==
