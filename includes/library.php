@@ -9,12 +9,12 @@ function social_ring_add_opengraph_meta() {
 	global $post;
 	
 	if (is_singular()) {
-		echo "<!-- Social Ring: Facebook Open Graph Meta Start -->\n";
+		echo "\n\n<!-- Social Ring: Facebook Open Graph Meta Start -->\n";
 		echo "<meta property=\"og:url\" content=\"".esc_attr(get_permalink($post->ID))."\" />\n";
 		echo "<meta property=\"og:title\" content=\"".esc_attr( strip_tags( stripslashes($post->post_title)))."\" />\n";
 		echo "<meta property=\"og:type\" content=\"article\" />\n";
 		echo "<meta property=\"og:site_name\" content=\"".get_bloginfo('name')."\" />\n";
-		echo "<meta property=\"og:description\" content=\"".social_ring_make_excerpt($post)."\" />\n";
+		echo "<meta property=\"og:description\" content=\"".esc_attr(social_ring_make_excerpt($post))."\" />\n";
 		if ( empty( $image ) && function_exists('has_post_thumbnail') && has_post_thumbnail( $post->ID ) ) {
 			$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' );
 			if ( $thumbnail )
@@ -40,7 +40,7 @@ function social_ring_add_opengraph_meta() {
 		if ( $image != '' ) {
 			echo "<meta property=\"og:image\" content=\"".esc_attr( $image )."\" />\n";
 		}
-		echo "<!-- Social Ring: Facebook Open Graph Meta End -->\n";
+		echo "<!-- Social Ring: Facebook Open Graph Meta End -->\n\n";
 	}
 	
 }
@@ -192,25 +192,30 @@ function social_ring_print_check() {
 
 /* Code from Simple Facebook Connect by Otto (http://ottopress.com) */
 function social_ring_make_excerpt($post) { 
-
+	
 	if (!empty($post->post_excerpt)) $text = $post->post_excerpt;
 	else $text = $post->post_content;
+	
 	$text = strip_shortcodes( $text );
+
 	remove_filter( 'the_content', 'wptexturize' );
 	$text = apply_filters('the_content', $text);
 	add_filter( 'the_content', 'wptexturize' );
+
 	$text = str_replace(']]>', ']]&gt;', $text);
 	$text = wp_strip_all_tags($text);
 	$text = str_replace(array("\r\n","\r","\n"),' ',$text);
+
 	$excerpt_more = apply_filters('excerpt_more', '[...]');
 	$excerpt_more = html_entity_decode($excerpt_more, ENT_QUOTES, 'UTF-8');
 	$text = html_entity_decode($text, ENT_QUOTES, 'UTF-8');
+
 	$max = min(1000,apply_filters('sfc_excerpt_length',1000));
 	$max -= strlen ($excerpt_more) + 1;
 	$max -= strlen ('</fb:intl>') * 2 - 1;
 
 	if ($max<1) return ''; // nothing to send
-
+	
 	if (strlen($text) >= $max) {
 		$text = substr($text, 0, $max);
 		$words = explode(' ', $text);
@@ -218,6 +223,7 @@ function social_ring_make_excerpt($post) {
 		array_push ($words, $excerpt_more);
 		$text = implode(' ', $words);
 	}
+
 	return $text;
 }
 
