@@ -13,7 +13,7 @@ function social_ring_add_opengraph_meta() {
 		echo "<meta property=\"og:url\" content=\"".esc_attr(get_permalink($post->ID))."\" />\n";
 		echo "<meta property=\"og:title\" content=\"".esc_attr( strip_tags( stripslashes($post->post_title)))."\" />\n";
 		echo "<meta property=\"og:type\" content=\"article\" />\n";
-		echo "<meta property=\"og:site_name\" content=\"".get_bloginfo('name')."\" />\n";
+		echo "<meta property=\"og:site_name\" content=\"".esc_attr(get_bloginfo('name'))."\" />\n";
 		echo "<meta property=\"og:description\" content=\"".esc_attr(social_ring_make_excerpt($post))."\" />\n";
 		if ( empty( $image ) && function_exists('has_post_thumbnail') && has_post_thumbnail( $post->ID ) ) {
 			$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' );
@@ -142,7 +142,7 @@ function social_ring_add_js() {
 	global $wp_social_ring_options;
 	if(social_ring_print_check() == 1) {
 		if($wp_social_ring_options['social_facebook_like_button'] == 1) {
-			if(WPLANG != "") {
+			if(defined(WPLANG) && WPLANG != "") {
 ?>
 <div id="fb-root"></div><script src="http://connect.facebook.net/<?php echo WPLANG; ?>/all.js#xfbml=1"></script>
 <?php
@@ -171,10 +171,12 @@ document.getElementById("sr-twitter-button").innerHTML = 'Twitter';
 function social_ring_print_check() {
 
 	global $wp_social_ring_options;
-	if(is_single()) {
+	global $post;
+	
+	if(is_single() && $post->post_type == "post") {
 		return $wp_social_ring_options['social_on_posts'];
 	}
-	if(is_page()) {
+	if(is_page() && $post->post_type == "page") {
 		return $wp_social_ring_options['social_on_pages'];
 	}
 	if(is_home()) {
