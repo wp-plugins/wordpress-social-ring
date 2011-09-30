@@ -142,7 +142,7 @@ function social_ring_add_js() {
 	global $wp_social_ring_options;
 	if(social_ring_print_check() == 1) {
 		if($wp_social_ring_options['social_facebook_like_button'] == 1) {
-			if(defined(WPLANG) && WPLANG != "") {
+			if(defined(WPLANG)) {
 ?>
 <div id="fb-root"></div><script src="http://connect.facebook.net/<?php echo WPLANG; ?>/all.js#xfbml=1"></script>
 <?php
