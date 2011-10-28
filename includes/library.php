@@ -97,7 +97,7 @@ function social_ring_add_sharing($content) {
 		$html = '<div id="social-ring">';
 	
 		if($wp_social_ring_options['social_twitter_button'] == 1) {
-			$html .= '<div class="social-ring-button"><a id="sr-twitter-button" href="http://twitter.com/share" data-url="'.$url.'" data-text="'.$title.'" class="twitter-share-button" style="display:none;"></a></div>';
+			$html .= '<div class="social-ring-button"><a href="http://twitter.com/share" data-url="'.$url.'" data-text="'.$title.'" data-count="horizontal" class="sr-twitter-button twitter-share-button"></a></div>';
 		}
 		
 		if($wp_social_ring_options['social_google_button'] == 1) {
@@ -160,7 +160,20 @@ function social_ring_add_js() {
 		if($wp_social_ring_options['social_twitter_button'] == 1) {
 ?>
 <script type='text/javascript'>
-document.getElementById("sr-twitter-button").innerHTML = 'Twitter';
+function insertTweetText(element, index, array) {
+	element.innerHTML = 'Twitter';
+}
+var className = 'sr-twitter-button';
+var hasClassName = new RegExp("(?:^|\\s)" + className + "(?:$|\\s)");
+var allElements = document.getElementsByTagName("a");
+var twitterLinks = [];
+for (var i = 0; (element = allElements[i]) != null; i++) {
+	var elementClass = element.className;
+	if (elementClass && elementClass.indexOf(className) != -1 && hasClassName.test(elementClass))
+		twitterLinks.push(element);
+}
+
+twitterLinks.forEach(insertTweetText);
 </script>
 <script type='text/javascript' src='http://platform.twitter.com/widgets.js'></script>
 <?php
