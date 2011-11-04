@@ -65,7 +65,7 @@ function social_ring_add_css() {
 ?> 
 
 		<style type="text/css">
-			#social-ring {
+			.social-ring {
 				margin: 0 !important;
 				padding: 0 !important;
 				line-height: 20px !important;
@@ -94,7 +94,7 @@ function social_ring_add_sharing($content) {
 	
 		$url = get_permalink(get_the_ID());
 		$title = get_the_title(get_the_ID());
-		$html = '<div id="social-ring">';
+		$html = '<div class="social-ring">';
 	
 		if($wp_social_ring_options['social_twitter_button'] == 1) {
 			$html .= '<div class="social-ring-button"><a href="http://twitter.com/share" data-url="'.$url.'" data-text="'.$title.'" data-count="horizontal" class="sr-twitter-button twitter-share-button"></a></div>';
