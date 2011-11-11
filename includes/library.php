@@ -184,12 +184,11 @@ twitterLinks.forEach(insertTweetText);
 function social_ring_print_check() {
 
 	global $wp_social_ring_options;
-	global $post;
 	
-	if(is_single() && $post->post_type == "post") {
+	if(is_single()) {
 		return $wp_social_ring_options['social_on_posts'];
 	}
-	if(is_page() && $post->post_type == "page") {
+	if(is_page()) {
 		return $wp_social_ring_options['social_on_pages'];
 	}
 	if(is_home()) {
