@@ -35,6 +35,11 @@ http://wordpress.altervista.org/
 
 == Changelog ==
 
+= 1.1 =
+
+* Added template tag
+* Added Social Ring Widget
+
 = 1.0.6 =
 
 * fixed bug with category and archives

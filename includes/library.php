@@ -61,7 +61,6 @@ function social_ring_get_first_image() {
 function social_ring_add_css() {
 
 	global $wp_social_ring_options;
-	if(social_ring_print_check() == 1) {
 ?> 
 
 		<style type="text/css">
@@ -83,7 +82,64 @@ function social_ring_add_css() {
 		</style>
 
 <?php
+}
+
+/*
+ function social_ring_show() is a template tag.
+ It must be used inside the loop
+*/
+function social_ring_show() {
+
+	global $wp_social_ring_options;	
+	$html = social_ring_gen_button_code() ;
+	echo $html;
+	return;
+	
+}
+
+
+/*
+  function social_ring_gen_button_code() generates
+  HTML code of social buttons
+*/
+function social_ring_gen_button_code() {
+	
+	global $wp_social_ring_options;
+	
+	$url = get_permalink(get_the_ID());
+	$title = get_the_title(get_the_ID());
+	$html = '<!-- Social Ring Buttons Start --><div class="social-ring">';
+
+	if($wp_social_ring_options['social_twitter_button'] == 1) {
+		$html .= '<div class="social-ring-button"><a href="http://twitter.com/share" data-url="'.$url.'" data-text="'.$title.'" data-count="horizontal" class="sr-twitter-button twitter-share-button"></a></div>';
 	}
+	
+	if($wp_social_ring_options['social_google_button'] == 1) {
+		$html .= '<div class="social-ring-button"><g:plusone size="medium" callback="plusone_vote"></g:plusone></div>';
+	}
+	
+	if($wp_social_ring_options['social_facebook_share_button'] == 1) {
+		$html .= '<div class="social-ring-button"><iframe allowtransparency="true" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="width: 70px; height: 21px; position: static; left: 0px; top: 0px; visibility: visible; " tabindex="-1" vspace="0" width="100%" src="'.WP_SOCIAL_RING_URL.'/includes/share.php?url='.urlencode($url).'"></iframe></div>';	
+	}
+	if($wp_social_ring_options['social_facebook_like_button'] == 1) {
+		if(!preg_match("/MSIE 8.0/", $_SERVER['HTTP_USER_AGENT']) ) {
+			if($wp_social_ring_options['social_facebook_send_button'] == 1) {
+				$send = 'true';
+				$width = 180;
+			} else {
+				$send = 'false';
+				$width = 140;
+			}
+			$html .= '<div class="social-ring-button"><fb:like href="'.$url.'" send="'.$send.'" showfaces="false" width="'.$width.'" layout="button_count" action="like"/></fb:like></div>';
+		} else {
+			$html .= '<div class="social-ring-button"><iframe src="http://www.facebook.com/plugins/like.php?app_id=131347983616840&amp;href='.urlencode($url).'&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:110px; height:21px;" allowTransparency="true"></iframe></div>';
+		}
+	}
+
+	$html .= '</div>';
+	$html .= '<div style="clear:both;">&nbsp;</div><!-- Social Ring Buttons End -->';
+	return $html;
+	
 }
 
 function social_ring_add_sharing($content) {
@@ -92,38 +148,7 @@ function social_ring_add_sharing($content) {
 
 	if(social_ring_print_check() == 1 && ($wp_social_ring_options['social_before_content'] == 1 || $wp_social_ring_options['social_after_content'] == 1)) {
 	
-		$url = get_permalink(get_the_ID());
-		$title = get_the_title(get_the_ID());
-		$html = '<!-- Social Ring Buttons Start --><div class="social-ring">';
-	
-		if($wp_social_ring_options['social_twitter_button'] == 1) {
-			$html .= '<div class="social-ring-button"><a href="http://twitter.com/share" data-url="'.$url.'" data-text="'.$title.'" data-count="horizontal" class="sr-twitter-button twitter-share-button"></a></div>';
-		}
-		
-		if($wp_social_ring_options['social_google_button'] == 1) {
-			$html .= '<div class="social-ring-button"><g:plusone size="medium" callback="plusone_vote"></g:plusone></div>';
-		}
-		
-		if($wp_social_ring_options['social_facebook_share_button'] == 1) {
-			$html .= '<div class="social-ring-button"><iframe allowtransparency="true" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="width: 70px; height: 21px; position: static; left: 0px; top: 0px; visibility: visible; " tabindex="-1" vspace="0" width="100%" src="'.WP_SOCIAL_RING_URL.'/includes/share.php?url='.urlencode($url).'"></iframe></div>';	
-		}
-		if($wp_social_ring_options['social_facebook_like_button'] == 1) {
-			if(!preg_match("/MSIE 8.0/", $_SERVER['HTTP_USER_AGENT']) ) {
-				if($wp_social_ring_options['social_facebook_send_button'] == 1) {
-					$send = 'true';
-					$width = 180;
-				} else {
-					$send = 'false';
-					$width = 140;
-				}
-				$html .= '<div class="social-ring-button"><fb:like href="'.$url.'" send="'.$send.'" showfaces="false" width="'.$width.'" layout="button_count" action="like"/></fb:like></div>';
-			} else {
-				$html .= '<div class="social-ring-button"><iframe src="http://www.facebook.com/plugins/like.php?app_id=131347983616840&amp;href='.urlencode($url).'&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:110px; height:21px;" allowTransparency="true"></iframe></div>';
-			}
-		}
-	
-		$html .= '</div>';
-		$html .= '<div style="clear:both;">&nbsp;</div><!-- Social Ring Buttons End -->';
+		$html = social_ring_gen_button_code();
 		
 		if($wp_social_ring_options['social_before_content'] == 1) {
 			$content = $html.$content;
@@ -138,30 +163,12 @@ function social_ring_add_sharing($content) {
 }
 
 function social_ring_add_js() {
-
-	global $wp_social_ring_options;
-	if(social_ring_print_check() == 1) {
-		?>
+	
+	?>
 		<!-- Social Ring JS Start -->
-		<?php
-		if($wp_social_ring_options['social_facebook_like_button'] == 1) {
-			if(defined(WPLANG)) {
-?>
-<div id="fb-root"></div><script src="http://connect.facebook.net/<?php echo WPLANG; ?>/all.js#xfbml=1"></script>
-<?php
-			 } else {
-?>
-<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-<?php			 
-			 }
-		}
-		if($wp_social_ring_options['social_google_button'] == 1) {
-?>
+
+<div id="fb-root"></div><script src="http://connect.facebook.net/<?php _e('en_US'); ?>/all.js#xfbml=1"></script>
 <script type='text/javascript' src='https://apis.google.com/js/plusone.js'></script>
-<?php
-		}
-		if($wp_social_ring_options['social_twitter_button'] == 1) {
-?>
 <script type='text/javascript'>
 function insertTweetText(element, index, array) {
 	element.innerHTML = 'Twitter';
@@ -179,22 +186,18 @@ for (var i = 0; (element = allElements[i]) != null; i++) {
 twitterLinks.forEach(insertTweetText);
 </script>
 <script type='text/javascript' src='http://platform.twitter.com/widgets.js'></script>
-<?php
-		}
-		?>
 		<!-- Social Ring JS End -->
-		<?php
-	}
+<?php
 }
 
 function social_ring_print_check() {
 
 	global $wp_social_ring_options;
 	
-	if(is_single()) {
+	if(is_single() && get_post_type() == "post") {
 		return $wp_social_ring_options['social_on_posts'];
 	}
-	if(is_page()) {
+	if(is_page() && get_post_type() == "page") {
 		return $wp_social_ring_options['social_on_pages'];
 	}
 	if(is_home()) {

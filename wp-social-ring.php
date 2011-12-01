@@ -3,7 +3,7 @@
 Plugin Name: WordPress Social Ring
 Description: Let visitors share posts/pages on Facebook, Twitter and Google+. From admin page you can choose which button display: Facebook Like, Facebook Send, Facebook Share, Google +1 and Twitter.
 Author: Niccol&ograve; Tapparo
-Version: 1.0.6
+Version: 1.1
 Author URI: http://wordpress.altervista.org/
 Plugin URI: http://wordpress.altervista.org/temi-realizzati/plugin-wordpress-social-ring/
 */
@@ -21,6 +21,7 @@ load_plugin_textdomain(WP_SOCIAL_RING, false, dirname(plugin_basename(__FILE__))
 $wp_social_ring_options = get_option(WP_SOCIAL_RING.'_options');
 
 include WP_SOCIAL_RING_PATH.'/includes/library.php';
+include WP_SOCIAL_RING_PATH.'/includes/widgets.php';
 
 if(is_admin()) {
 	include WP_SOCIAL_RING_PATH.'/admin/admin.php';
