@@ -21,7 +21,7 @@ function wp_social_ring_setting_page() {
 							<p>
 								<?php _e('You can also give Social buttons a custom position by calling this function in your theme.',WP_SOCIAL_RING); ?>
 							</p>
-								<pre>&lt;?php social_ring_show(); ?&gt;</pre>
+								<pre>&lt;?php if(function_exists('social_ring_show')){ social_ring_show();} ?&gt;</pre>
 							<p>
 								<?php _e('Pay Attention: it must called <b>inside the loop</b> to work properly!',WP_SOCIAL_RING); ?>
 							</p>

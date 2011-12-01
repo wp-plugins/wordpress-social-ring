@@ -29,7 +29,7 @@ function form($instance) {
 				'tweet_hint_desc' => '',
 				'tweet_text' => get_bloginfo('name').' - '.get_bloginfo('description'),
 				'border_color' => 'D0D0D0',
-				'box_padding' => 26,
+				'box_padding' => 24,
 				'button_margin' => 12
 			);
 		
@@ -87,15 +87,15 @@ function form($instance) {
                         <ul>
                             <li>
 				<input size ="8" id="<?php echo $this->get_field_id('button_margin'); ?>" name="<?php echo $this->get_field_name('button_margin'); ?>" type="text" value="<?php echo $instance['button_margin']; ?>" />
-				<label><?php _e('Button Margin','av-optimizer'); ?></label>
+				<label><?php _e('Button Margin',WP_SOCIAL_RING); ?></label>
 			    </li>
 			     <li>
 				<input size ="8" id="<?php echo $this->get_field_id('box_padding'); ?>" name="<?php echo $this->get_field_name('box_padding'); ?>" type="text" value="<?php echo $instance['box_padding']; ?>" />
-				<label><?php _e('Widget Padding','av-optimizer'); ?></label>
+				<label><?php _e('Widget Padding',WP_SOCIAL_RING); ?></label>
 			    </li>
 			      <li>
 				<input size ="8" id="<?php echo $this->get_field_id('border_color'); ?>" name="<?php echo $this->get_field_name('border_color'); ?>" type="text" value="<?php echo $instance['border_color']; ?>" />
-				<label><?php _e('Border Color','av-optimizer'); ?></label>
+				<label><?php _e('Border Color',WP_SOCIAL_RING); ?></label>
 			    </li>
                         </ul>
 				

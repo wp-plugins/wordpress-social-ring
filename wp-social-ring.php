@@ -5,7 +5,7 @@ Description: Let visitors share posts/pages on Facebook, Twitter and Google+. Fr
 Author: Niccol&ograve; Tapparo
 Version: 1.1
 Author URI: http://wordpress.altervista.org/
-Plugin URI: http://wordpress.altervista.org/temi-realizzati/plugin-wordpress-social-ring/
+Plugin URI: http://wordpress.altervista.org/en/themes-and-plugins-portfolio/wordpress-social-ring/
 */
 
 define( 'WP_SOCIAL_RING', 'wp_social_ring' );
