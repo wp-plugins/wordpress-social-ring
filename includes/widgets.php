@@ -124,10 +124,10 @@ function form($instance) {
 
 	// outputs the content of the widget
 	function widget($args, $instance) {
-	if(isset($instance['widget_title'])) {
-	?>
-		<h3 class="widget-title"><?php echo $instance['widget_title']; ?></h3>
-	<?php
+	extract($args);
+	echo $before_widget."\n";
+	if ( isset($instance['widget_title']) ) {
+		echo $before_title . $instance['widget_title'] . $after_title."\n";
 	}
 	?>
 	<div style="-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;border:1px solid #<?php echo $instance['border_color']; ?>;padding:12px <?php echo $instance['box_padding']; ?>px;min-height:62px;">
@@ -143,8 +143,8 @@ function form($instance) {
 		
 		<div class="clear"></div>
 	</div>
-
 <?php
+	echo $after_widge."\n";
 	}
 }
 
