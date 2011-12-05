@@ -19,7 +19,7 @@ You can also choose on which pages display them: Home, Posts, Pages, Categories 
 
 Follow me for the updates!
 http://www.facebook.com/pages/DrWordPress/166397626712895
-http://wordpress.altervista.org/
+http://wordpress.altervista.org/en/tag/wordpress-social-ring-en/
 
 == Installation ==
 
