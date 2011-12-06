@@ -35,6 +35,11 @@ http://wordpress.altervista.org/en/tag/wordpress-social-ring-en/
 
 == Changelog ==
 
+= 1.1.2 =
+
+* Added shortcode [socialring]
+* IE8 fix
+
 = 1.1.1 =
 
 * Widget compatibility fix

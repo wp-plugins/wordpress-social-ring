@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WordPress Social Ring\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-01 12:25+0100\n"
-"PO-Revision-Date: 2011-12-01 12:33+0100\n"
+"POT-Creation-Date: 2011-12-06 16:21+0100\n"
+"PO-Revision-Date: 2011-12-06 16:22+0100\n"
 "Last-Translator: Niccolo Tapparo\n"
 "Language-Team: AlterVista\n"
 "MIME-Version: 1.0\n"
@@ -18,106 +18,118 @@ msgid "WordPress Social Ring Settings"
 msgstr "Impostazioni WordPress Social Ring"
 
 #: admin/admin.php:19
+msgid "Extra"
+msgstr "Extra"
+
+#: admin/admin.php:22
 msgid "<b>Custom position</b>"
 msgstr "<b>Posizione personalizzata</b>"
 
-#: admin/admin.php:22
-msgid "You can also give Social buttons a custom position by calling this function in your theme."
-msgstr "I bottoni social possono anche essere posizionati a piacere inserendo nel tema il seguente codice:"
+#: admin/admin.php:25
+msgid "You can give Social buttons a custom position by calling this function in your theme."
+msgstr "I bottoni social possono essere posizionati a piacere inserendo nel tema il seguente codice:"
 
-#: admin/admin.php:26
+#: admin/admin.php:29
 msgid "Pay Attention: it must called <b>inside the loop</b> to work properly!"
 msgstr "Attenzione: deve essere utilizzato <b>all'interno del loop</b> per funzionare correttamente."
 
-#: admin/admin.php:30
+#: admin/admin.php:32
+msgid "<b>Shortcode</b>"
+msgstr "<b>Shortcode</b>"
+
+#: admin/admin.php:35
+msgid "You can also place social buttons inside your posts by using the shortcode:"
+msgstr "I bottoni social possono essere anche inseriti all'interno dei post utilizzando il seguente shortcode:"
+
+#: admin/admin.php:40
 msgid "Save Changes"
 msgstr "Salva Impostazioni"
 
-#: admin/admin.php:36
+#: admin/admin.php:46
 msgid "http://en.altervista.org/create-free-blog.html?ref=socialring"
 msgstr "http://it.altervista.org/crea-blog-gratis.php?ref=socialring"
 
-#: admin/admin.php:37
+#: admin/admin.php:47
 msgid "Create your free blog!"
 msgstr "Crea il tuo blog gratis!"
 
-#: admin/admin.php:75
+#: admin/admin.php:85
 msgid "General Settings"
 msgstr "Impostazioni Generali"
 
-#: admin/admin.php:81
+#: admin/admin.php:91
 msgid "Buttons"
 msgstr "Pulsanti"
 
-#: admin/admin.php:88
+#: admin/admin.php:98
 msgid "Position"
 msgstr "Posizione"
 
-#: admin/admin.php:95
+#: admin/admin.php:105
 msgid "Show on"
 msgstr "Mostra su"
 
-#: admin/admin.php:104
+#: admin/admin.php:114
 msgid "Choose Social Ring position and behavior"
 msgstr "Scegli la posizione e il comportamento dei pulsanti di condivisione sui social network"
 
-#: admin/admin.php:118
+#: admin/admin.php:128
 msgid "Before content"
 msgstr "Prima del contenuto"
 
-#: admin/admin.php:122
+#: admin/admin.php:132
 msgid "After content"
 msgstr "Dopo il contenuto"
 
-#: admin/admin.php:138
+#: admin/admin.php:148
 msgid "Facebook Like"
 msgstr "Facebook Mi Piace"
 
-#: admin/admin.php:142
+#: admin/admin.php:152
 msgid "Facebook Send"
 msgstr "Facebook Invia"
 
-#: admin/admin.php:146
+#: admin/admin.php:156
 msgid "Facebook Share"
 msgstr "Facebook Condividi"
 
-#: admin/admin.php:150
+#: admin/admin.php:160
 msgid "Twitter"
 msgstr "Twitter"
 
-#: admin/admin.php:154
+#: admin/admin.php:164
 msgid "Google +1"
 msgstr "Google +1"
 
-#: admin/admin.php:171
+#: admin/admin.php:181
 msgid "Home"
 msgstr "Home"
 
-#: admin/admin.php:175
+#: admin/admin.php:185
 msgid "Pages"
 msgstr "Pagine"
 
-#: admin/admin.php:179
+#: admin/admin.php:189
 msgid "Posts"
 msgstr "Post"
 
-#: admin/admin.php:183
+#: admin/admin.php:193
 msgid "Categories"
 msgstr "Categorie"
 
-#: admin/admin.php:187
+#: admin/admin.php:197
 msgid "Archive"
 msgstr "Archivi"
 
-#: admin/admin.php:223
+#: admin/admin.php:233
 msgid "Social Ring settings"
 msgstr "Impostazioni Social Ring"
 
-#: admin/admin.php:223
+#: admin/admin.php:233
 msgid "Social Ring"
 msgstr "Social Ring"
 
-#: includes/library.php:170
+#: includes/library.php:179
 msgid "en_US"
 msgstr "it_IT"
 

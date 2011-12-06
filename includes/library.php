@@ -90,10 +90,19 @@ function social_ring_add_css() {
 */
 function social_ring_show() {
 
-	global $wp_social_ring_options;	
 	$html = social_ring_gen_button_code() ;
 	echo $html;
 	return;
+	
+}
+
+/*
+ function social_ring_shortcode() returns the code for
+ [socialring] shortcode
+*/
+function social_ring_shortcode() {
+	
+	return social_ring_gen_button_code();
 	
 }
 
@@ -169,22 +178,6 @@ function social_ring_add_js() {
 
 <div id="fb-root"></div><script src="http://connect.facebook.net/<?php _e('en_US'); ?>/all.js#xfbml=1"></script>
 <script type='text/javascript' src='https://apis.google.com/js/plusone.js'></script>
-<script type='text/javascript'>
-function insertTweetText(element, index, array) {
-	element.innerHTML = 'Twitter';
-}
-var className = 'sr-twitter-button';
-var hasClassName = new RegExp("(?:^|\\s)" + className + "(?:$|\\s)");
-var allElements = document.getElementsByTagName("a");
-var twitterLinks = [];
-for (var i = 0; (element = allElements[i]) != null; i++) {
-	var elementClass = element.className;
-	if (elementClass && elementClass.indexOf(className) != -1 && hasClassName.test(elementClass))
-		twitterLinks.push(element);
-}
-
-twitterLinks.forEach(insertTweetText);
-</script>
 <script type='text/javascript' src='http://platform.twitter.com/widgets.js'></script>
 		<!-- Social Ring JS End -->
 <?php

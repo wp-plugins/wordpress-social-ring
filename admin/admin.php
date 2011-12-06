@@ -14,17 +14,27 @@ function wp_social_ring_setting_page() {
 						<div class="postbox">
 							<?php settings_fields(WP_SOCIAL_RING.'_options'); ?>
 							<?php do_settings_sections(WP_SOCIAL_RING); ?>
-							<div style="margin: 10px;">
-							<p>
-								<?php _e('<b>Custom position</b>',WP_SOCIAL_RING); ?>
-							</p>	
-							<p>
-								<?php _e('You can also give Social buttons a custom position by calling this function in your theme.',WP_SOCIAL_RING); ?>
-							</p>
+						</div>
+						<div class="postbox">
+							<h3><?php _e('Extra',WP_SOCIAL_RING); ?></h3>
+							<div style="margin-left:10px;">
+								<p style="margin-top:10px;">
+									<?php _e('<b>Custom position</b>',WP_SOCIAL_RING); ?>
+								</p>	
+								<p>
+									<?php _e('You can give Social buttons a custom position by calling this function in your theme.',WP_SOCIAL_RING); ?>
+								</p>
 								<pre>&lt;?php if(function_exists('social_ring_show')){ social_ring_show();} ?&gt;</pre>
-							<p>
-								<?php _e('Pay Attention: it must called <b>inside the loop</b> to work properly!',WP_SOCIAL_RING); ?>
-							</p>
+								<p>
+									<?php _e('Pay Attention: it must called <b>inside the loop</b> to work properly!',WP_SOCIAL_RING); ?>
+								</p>
+								<p style="margin-top:20px;">
+									<?php _e('<b>Shortcode</b>',WP_SOCIAL_RING); ?>
+								</p>
+								<p>
+									<?php _e('You can also place social buttons inside your posts by using the shortcode:',WP_SOCIAL_RING); ?>
+								</p>
+								<pre style="margin-bottom:20px;">[socialring]</pre>
 							</div>
 						</div>
 						<input name="submit" class="button-primary" type="submit" value="<?php _e('Save Changes',WP_SOCIAL_RING); ?>" />
