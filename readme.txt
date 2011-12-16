@@ -35,7 +35,7 @@ http://wordpress.altervista.org/en/tag/wordpress-social-ring-en/
 
 == Changelog ==
 
-= 1.1.3 ==
+= 1.1.3 =
 
 * widget bugfix
 
