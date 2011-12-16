@@ -130,7 +130,7 @@ function form($instance) {
 		echo $before_title . $instance['widget_title'] . $after_title."\n";
 	}
 	?>
-	<div style="-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;border:1px solid #<?php echo $instance['border_color']; ?>;padding:12px <?php echo $instance['box_padding']; ?>px;min-height:62px;">
+	<div class="SocialRing_Widget_inside" style="-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;border:1px solid #<?php echo $instance['border_color']; ?>;padding:12px <?php echo $instance['box_padding']; ?>px;min-height:62px;">
 		<div style="float:left;margin:0 <?php echo $instance['button_margin']; ?>px">
 			<a href="https://twitter.com/share" class="sr-twitter-button twitter-share-button" data-text="<?php echo $instance['tweet_text']; ?>" data-url="<?php echo $instance['tweet_url']; ?>" data-count="vertical" data-via="<?php echo $instance['tweet_account']; ?>" data-related="<?php echo $instance['tweet_hint_account']; ?>:<?php echo $instance['tweet_hint_desc']; ?>"></a>
 		</div>
@@ -144,7 +144,7 @@ function form($instance) {
 		<div class="clear"></div>
 	</div>
 <?php
-	echo $after_widge."\n";
+	echo $after_widget."\n";
 	}
 }
 
