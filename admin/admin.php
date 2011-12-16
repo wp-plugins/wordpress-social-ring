@@ -8,7 +8,7 @@ function wp_social_ring_setting_page() {
 		<?php screen_icon('plugins'); ?>
 		<h2><?php _e('WordPress Social Ring Settings',WP_SOCIAL_RING); ?></h2>
 		<div id="wp-social-ring">
-			<div class="postbox-container" style="width:70%;">
+			<div class="postbox-container" style="width:70%;margin-right:8px;">
 				<form action="options.php" method="post">
 				
 						<div class="postbox">
