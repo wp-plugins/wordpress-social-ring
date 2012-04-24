@@ -139,10 +139,20 @@ function social_ring_gen_button_code() {
 				$send = 'false';
 				$width = 140;
 			}
-			$html .= '<div class="social-ring-button"><fb:like href="'.$url.'" send="'.$send.'" showfaces="false" width="'.$width.'" layout="button_count" action="like"/></fb:like></div>';
+			$html .= '<div class="social-ring-button"><fb:like href="'.$url.'" width="'.$width.'" send="'.$send.'" showfaces="false" layout="button_count" action="like"/></fb:like></div>';
 		} else {
 			$html .= '<div class="social-ring-button"><iframe src="http://www.facebook.com/plugins/like.php?app_id=131347983616840&amp;href='.urlencode($url).'&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:110px; height:21px;" allowTransparency="true"></iframe></div>';
 		}
+	}
+	
+
+	if($wp_social_ring_options['social_pin_it_button'] == 1) {
+		$html .= '<div class="social-ring-button"><a href="http://pinterest.com/pin/create/button/?url='.urlencode($url);
+		$image = social_ring_get_first_image();
+		if($image > '') {
+			$html .= '&media='.urlencode($image);
+		}
+		$html .= '&description='.urlencode(esc_attr( strip_tags( stripslashes($title)))).'" class="pin-it-button" count-layout="horizontal"></a></div>';
 	}
 
 	$html .= '</div>';
@@ -175,10 +185,10 @@ function social_ring_add_js() {
 	
 	?>
 		<!-- Social Ring JS Start -->
-
-<div id="fb-root"></div><script src="http://connect.facebook.net/<?php _e('en_US'); ?>/all.js#xfbml=1"></script>
-<script type='text/javascript' src='https://apis.google.com/js/plusone.js'></script>
-<script type='text/javascript' src='http://platform.twitter.com/widgets.js'></script>
+	<div id="fb-root"></div><script src="http://connect.facebook.net/<?php _e('en_US', WP_SOCIAL_RING); ?>/all.js#xfbml=1"></script>
+	<script type='text/javascript' src='https://apis.google.com/js/plusone.js'></script>
+	<script type='text/javascript' src='http://platform.twitter.com/widgets.js'></script>
+        <script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script>
 		<!-- Social Ring JS End -->
 <?php
 }

@@ -8,7 +8,7 @@ function wp_social_ring_setting_page() {
 		<?php screen_icon('plugins'); ?>
 		<h2><?php _e('WordPress Social Ring Settings',WP_SOCIAL_RING); ?></h2>
 		<div id="wp-social-ring">
-			<div class="postbox-container" style="width:70%;margin-right:8px;">
+			<div class="postbox-container" style="width:70%;">
 				<form action="options.php" method="post">
 				
 						<div class="postbox">
@@ -41,7 +41,7 @@ function wp_social_ring_setting_page() {
 				
 				</form>
 			</div>
-			<div class="postbox-container">
+			<div class="postbox-container" style="margin-left:15px;">
 				<div>
 					<a target="_blank" href="<?php _e('http://en.altervista.org/create-free-blog.html?ref=socialring',WP_SOCIAL_RING); ?>">
 								<img alt="<?php _e('Create your free blog!');?>" title="<?php _e('Create your free blog!');?>" src="<?php echo WP_SOCIAL_RING_URL; ?>/admin/images/altervista.gif" height="300" width="180" />
@@ -63,9 +63,14 @@ function wp_social_ring_setting_page() {
 
 }
 
-add_action('admin_print_styles', 'add_wp_social_ring_css');
-function add_wp_social_ring_css() {
+
+function add_wp_social_ring_css_js() {
+	
 	wp_enqueue_style( WP_SOCIAL_RING.'-style', WP_SOCIAL_RING_URL.'admin/css/style.css');
+	wp_enqueue_script( WP_SOCIAL_RING.'_facebook_js', 'http://connect.facebook.net/'.__('en_US', WP_SOCIAL_RING).'/all.js#xfbml=1', array(), false, true);
+	wp_enqueue_script( WP_SOCIAL_RING.'_gplus_js', 'https://apis.google.com/js/plusone.js', array(), false, true);
+	wp_enqueue_script( WP_SOCIAL_RING.'_twitter_js', 'http://platform.twitter.com/widgets.js', array(), false, true);
+	wp_enqueue_script( WP_SOCIAL_RING.'_pin_it_js', 'http://assets.pinterest.com/js/pinit.js', array(), false, true);
 }
 
 // Register and define the settings
@@ -141,30 +146,39 @@ function print_social_ring_buttons_input() {
 	global $wp_social_ring_options;
 	// echo the field
 	?>
-
 		<ul>
-			<li>
-				<span><input id='social_facebook_like_button' name='wp_social_ring_options[social_facebook_like_button]' type='checkbox' value="1" <?php if($wp_social_ring_options['social_facebook_like_button'] == 1) echo "checked"; ?> /></span>
-				<span><?php _e('Facebook Like',WP_SOCIAL_RING) ?></span>
+			<li style="clear:both;">
+				<div style="float:left;"><input id='social_facebook_like_button' name='wp_social_ring_options[social_facebook_like_button]' type='checkbox' value="1" <?php checked($wp_social_ring_options['social_facebook_like_button'], 1); ?> /></div>
+				<div style="float:left;margin-left:20px;width:150px;"><?php _e('Facebook Like',AVOPT) ?></div>
+				<div style="float:left;margin-left:20px;"><fb:like href="http://www.facebook.com/pages/DrWordPress/166397626712895" send="false" showfaces="false" width="108" layout="button_count" action="like"/></fb:like></div>
 			</li>
-			<li>
-				<span><input id='social_facebook_send_button' name='wp_social_ring_options[social_facebook_send_button]' type='checkbox' value="1" <?php if($wp_social_ring_options['social_facebook_send_button'] == 1) echo "checked"; ?> /></span>
-				<span><?php _e('Facebook Send',WP_SOCIAL_RING) ?></span>
+			<li style="clear:both;padding-top:10px;">
+				<div style="float:left;"><input id='social_facebook_send_button' name='wp_social_ring_options[social_facebook_send_button]' type='checkbox' value="1" <?php checked($wp_social_ring_options['social_facebook_send_button'], 1); ?> /></div>
+				<div style="float:left;margin-left:20px;width:150px;"><?php _e('Facebook Send',AVOPT) ?></div>
+				<div style="float:left;margin-left:20px;"><fb:like href="http://www.facebook.com/pages/DrWordPress/166397626712895" send="true" showfaces="false" width="164" layout="button_count" action="like"/></fb:like></div>
+				<div id="fb-root"></div>
 			</li>
-			<li>
-				<span><input id='social_facebook_share_button' name='wp_social_ring_options[social_facebook_share_button]' type='checkbox' value="1" <?php if($wp_social_ring_options['social_facebook_share_button'] == 1) echo "checked"; ?> /></span>
-				<span><?php _e('Facebook Share',WP_SOCIAL_RING) ?></span>
+			<li style="clear:both;padding-top:10px;">
+				<div style="float:left;"><input id='social_facebook_share_button' name='wp_social_ring_options[social_facebook_share_button]' type='checkbox' value="1" <?php checked($wp_social_ring_options['social_facebook_share_button'], 1); ?> /></div>
+				<div style="float:left;margin-left:20px;width:150px;"><?php _e('Facebook Share',AVOPT) ?></div>
+				<div style="float:left;margin-left:20px;"><iframe allowtransparency="true" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="width: 58px; height: 21px; position: static; left: 0px; top: 0px; visibility: visible; " tabindex="-1" vspace="0" width="100%" src="<?php echo AVOPT_URL; ?>/scripts/share.php?url=<?php echo urlencode('http://wordpress.altervista.org/'); ?>"></iframe></div>
 			</li>
-			<li>
-				<span><input id='social_twitter_button' name='wp_social_ring_options[social_twitter_button]' type='checkbox' value="1" <?php if($wp_social_ring_options['social_twitter_button'] == 1) echo "checked"; ?> /></span>
-				<span><?php _e('Twitter',WP_SOCIAL_RING) ?></span>
+			<li style="clear:both;padding-top:10px;">
+				<div style="float:left;"><input id='social_twitter_button' name='wp_social_ring_options[social_twitter_button]' type='checkbox' value="1" <?php checked($wp_social_ring_options['social_twitter_button'], 1); ?> /></div>
+				<div style="float:left;margin-left:20px;width:150px;"><?php _e('Twitter',AVOPT) ?></div>
+				<div style="float:left;margin-left:20px;"><a href="http://twitter.com/share" data-url="<?php echo site_url(); ?>" data-text="<?php _e('I use WordPress Social Ring on my blog', AVOPT); ?>" data-via="dottorwordpress" data-count="horizontal" class="sr-twitter-button twitter-share-button"></a></div>
 			</li>
-			<li>
-				<span><input id='social_google_button' name='wp_social_ring_options[social_google_button]' type='checkbox' value="1" <?php if($wp_social_ring_options['social_google_button'] == 1) echo "checked"; ?> /></span>
-				<span><?php _e('Google +1',WP_SOCIAL_RING) ?></span>
+			<li style="clear:both;padding-top:10px;">
+				<div style="float:left;"><input id='social_google_button' name='wp_social_ring_options[social_google_button]' type='checkbox' value="1" <?php checked($wp_social_ring_options['social_google_button'], 1); ?> /></div>
+				<div style="float:left;margin-left:20px;width:150px;"><?php _e('Google +1',AVOPT) ?></div>
+				<div style="float:left;margin-left:20px;"><g:plusone href="<?php _e('http://wordpress.altervista.org/', AVOPT); ?>" size="medium" callback="plusone_vote"></g:plusone></div>
+			</li>
+			<li style="clear:both;padding-top:10px;">
+				<div style="float:left;"><input id='social_pin_it_button' name='wp_social_ring_options[social_pin_it_button]' type='checkbox' value="1" <?php checked($wp_social_ring_options['social_pin_it_button'], 1); ?> /></div>
+				<div style="float:left;margin-left:20px;width:150px;"><?php _e('Pin it',AVOPT) ?></div>
+				<div style="float:left;margin-left:20px;"><a href="http://pinterest.com/pin/create/button/?url=<?php echo urlencode(__('http://wordpress.altervista.org/', AVOPT)); ?>&media=<?php echo urlencode('http://wordpress.altervista.org/logo.jpg'); ?>&description=<?php echo urlencode(__('WordPress tutorials, plugin and themes.', AVOPT)." ".site_url()); ?>" class="pin-it-button" count-layout="horizontal"></a></div>
 			</li>
 		</ul>
-
 	<?php
 }
 
@@ -177,23 +191,23 @@ function print_social_ring_show_on_input() {
 
 		<ul>
 			<li>
-				<span><input id='social_on_home' name='wp_social_ring_options[social_on_home]' type='checkbox' value="1" <?php if($wp_social_ring_options['social_on_home'] == 1) echo "checked"; ?> /></span>
+				<span><input id='social_on_home' name='wp_social_ring_options[social_on_home]' type='checkbox' value="1" <?php checked($wp_social_ring_options['social_on_home'], 1); ?> /></span>
 				<span><?php _e('Home',WP_SOCIAL_RING) ?></span>
 			</li>
 			<li>
-				<span><input id='social_on_pages' name='wp_social_ring_options[social_on_pages]' type='checkbox' value="1" <?php if($wp_social_ring_options['social_on_pages'] == 1) echo "checked"; ?> /></span>
+				<span><input id='social_on_pages' name='wp_social_ring_options[social_on_pages]' type='checkbox' value="1" <?php checked($wp_social_ring_options['social_on_pages'], 1); ?> /></span>
 				<span><?php _e('Pages',WP_SOCIAL_RING) ?></span>
 			</li>
 			<li>
-				<span><input id='social_on_posts' name='wp_social_ring_options[social_on_posts]' type='checkbox' value="1" <?php if($wp_social_ring_options['social_on_posts'] == 1) echo "checked"; ?> /></span>
+				<span><input id='social_on_posts' name='wp_social_ring_options[social_on_posts]' type='checkbox' value="1" <?php checked($wp_social_ring_options['social_on_posts'], 1); ?> /></span>
 				<span><?php _e('Posts',WP_SOCIAL_RING) ?></span>
 			</li>
 			<li>
-				<span><input id='social_on_category' name='wp_social_ring_options[social_on_category]' type='checkbox' value="1" <?php if($wp_social_ring_options['social_on_category'] == 1) echo "checked"; ?> /></span>
+				<span><input id='social_on_category' name='wp_social_ring_options[social_on_category]' type='checkbox' value="1" <?php checked($wp_social_ring_options['social_on_category'], 1); ?> /></span>
 				<span><?php _e('Categories',WP_SOCIAL_RING) ?></span>
 			</li>
 			<li>
-				<span><input id='social_on_archive' name='wp_social_ring_options[social_on_archive]' type='checkbox' value="1" <?php if($wp_social_ring_options['social_on_archive'] == 1) echo "checked"; ?> /></span>
+				<span><input id='social_on_archive' name='wp_social_ring_options[social_on_archive]' type='checkbox' value="1" <?php checked($wp_social_ring_options['social_on_archive'], 1); ?> /></span>
 				<span><?php _e('Archive',WP_SOCIAL_RING) ?></span>
 			</li>
 		</ul>
@@ -216,6 +230,7 @@ function wp_social_ring_validate_options( $input ) {
 	$valid['social_facebook_share_button'] = (isset( $input['social_facebook_share_button'])) ? 1 : 0;
 	$valid['social_twitter_button'] = (isset( $input['social_twitter_button'])) ? 1 : 0;
 	$valid['social_google_button'] = (isset( $input['social_google_button'])) ? 1 : 0;
+	$valid['social_pin_it_button'] = (isset( $input['social_pin_it_button'])) ? 1 : 0;
 	$valid['social_on_home'] = (isset( $input['social_on_home'])) ? 1 : 0;
 	$valid['social_on_pages'] = (isset( $input['social_on_pages'])) ? 1 : 0;
 	$valid['social_on_posts'] = (isset( $input['social_on_posts'])) ? 1 : 0;
@@ -230,7 +245,8 @@ function wp_social_ring_validate_options( $input ) {
 add_action('admin_menu', 'register_social_ring_admin_menu');
 function register_social_ring_admin_menu() {
 
-	add_menu_page(__('Social Ring settings',WP_SOCIAL_RING),__('Social Ring',WP_SOCIAL_RING),'manage_options',WP_SOCIAL_RING,WP_SOCIAL_RING.'_setting_page',plugins_url('/images/av-16x16.png',__FILE__));
+	$page = add_menu_page(__('Social Ring settings',WP_SOCIAL_RING),__('Social Ring',WP_SOCIAL_RING),'manage_options',WP_SOCIAL_RING,WP_SOCIAL_RING.'_setting_page',plugins_url('/images/av-16x16.png',__FILE__));
+	add_action('admin_print_styles-' . $page, 'add_wp_social_ring_css_js');
 
 }
 
