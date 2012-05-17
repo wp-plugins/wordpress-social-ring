@@ -64,6 +64,18 @@ function social_ring_add_css() {
 ?> 
 
 		<style type="text/css">
+		
+			.social-ring:after {
+			    clear: both;
+			    content: " ";
+			    display: block;
+			    font-size: 0;
+			    height: 0;
+			    line-height: 0;
+			    visibility: hidden;
+			    width: 0;
+			}
+			
 			.social-ring {
 				margin: 0 !important;
 				padding: 0 !important;
