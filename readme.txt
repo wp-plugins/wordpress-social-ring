@@ -1,4 +1,4 @@
-=== WordPress Social Ring ===
+=== WordPress Social Ring (Facebook Like, Google +1, ReTweet and Pin It) ===
 Contributors: niccolo_tapparo
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=niccolo%2etapparo%40gmail%2ecom&lc=IT&item_name=Niccolo%20Tapparo&item_number=1&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: Google +1, Facebook, Facebook Like, Facebook Share, Open Graph Meta Tag, Twitter, Retweet, Google+, Social Network
