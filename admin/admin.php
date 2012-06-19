@@ -149,34 +149,34 @@ function print_social_ring_buttons_input() {
 		<ul>
 			<li style="clear:both;">
 				<div style="float:left;"><input id='social_facebook_like_button' name='wp_social_ring_options[social_facebook_like_button]' type='checkbox' value="1" <?php checked($wp_social_ring_options['social_facebook_like_button'], 1); ?> /></div>
-				<div style="float:left;margin-left:20px;width:150px;"><?php _e('Facebook Like',AVOPT) ?></div>
+				<div style="float:left;margin-left:20px;width:150px;"><?php _e('Facebook Like',WP_SOCIAL_RING) ?></div>
 				<div style="float:left;margin-left:20px;"><fb:like href="http://www.facebook.com/pages/DrWordPress/166397626712895" send="false" showfaces="false" width="108" layout="button_count" action="like"/></fb:like></div>
 			</li>
 			<li style="clear:both;padding-top:10px;">
 				<div style="float:left;"><input id='social_facebook_send_button' name='wp_social_ring_options[social_facebook_send_button]' type='checkbox' value="1" <?php checked($wp_social_ring_options['social_facebook_send_button'], 1); ?> /></div>
-				<div style="float:left;margin-left:20px;width:150px;"><?php _e('Facebook Send',AVOPT) ?></div>
+				<div style="float:left;margin-left:20px;width:150px;"><?php _e('Facebook Send',WP_SOCIAL_RING) ?></div>
 				<div style="float:left;margin-left:20px;"><fb:like href="http://www.facebook.com/pages/DrWordPress/166397626712895" send="true" showfaces="false" width="164" layout="button_count" action="like"/></fb:like></div>
 				<div id="fb-root"></div>
 			</li>
 			<li style="clear:both;padding-top:10px;">
 				<div style="float:left;"><input id='social_facebook_share_button' name='wp_social_ring_options[social_facebook_share_button]' type='checkbox' value="1" <?php checked($wp_social_ring_options['social_facebook_share_button'], 1); ?> /></div>
-				<div style="float:left;margin-left:20px;width:150px;"><?php _e('Facebook Share',AVOPT) ?></div>
-				<div style="float:left;margin-left:20px;"><iframe allowtransparency="true" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="width: 58px; height: 21px; position: static; left: 0px; top: 0px; visibility: visible; " tabindex="-1" vspace="0" width="100%" src="<?php echo AVOPT_URL; ?>/scripts/share.php?url=<?php echo urlencode('http://wordpress.altervista.org/'); ?>"></iframe></div>
+				<div style="float:left;margin-left:20px;width:150px;"><?php _e('Facebook Share',WP_SOCIAL_RING) ?></div>
+				<div style="float:left;margin-left:20px;"><iframe allowtransparency="true" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="width: 58px; height: 21px; position: static; left: 0px; top: 0px; visibility: visible; " tabindex="-1" vspace="0" width="100%" src="<?php echo WP_SOCIAL_RING_URL; ?>includes/share.php?url=<?php echo urlencode('http://wordpress.altervista.org/'); ?>"></iframe></div>
 			</li>
 			<li style="clear:both;padding-top:10px;">
 				<div style="float:left;"><input id='social_twitter_button' name='wp_social_ring_options[social_twitter_button]' type='checkbox' value="1" <?php checked($wp_social_ring_options['social_twitter_button'], 1); ?> /></div>
-				<div style="float:left;margin-left:20px;width:150px;"><?php _e('Twitter',AVOPT) ?></div>
-				<div style="float:left;margin-left:20px;"><a href="http://twitter.com/share" data-url="<?php echo site_url(); ?>" data-text="<?php _e('I use WordPress Social Ring on my blog', AVOPT); ?>" data-via="dottorwordpress" data-count="horizontal" class="sr-twitter-button twitter-share-button"></a></div>
+				<div style="float:left;margin-left:20px;width:150px;"><?php _e('Twitter',WP_SOCIAL_RING) ?></div>
+				<div style="float:left;margin-left:20px;"><a href="http://twitter.com/share" data-url="<?php echo site_url(); ?>" data-text="<?php _e('I use WordPress Social Ring on my blog', WP_SOCIAL_RING); ?>" data-via="dottorwordpress" data-count="horizontal" class="sr-twitter-button twitter-share-button"></a></div>
 			</li>
 			<li style="clear:both;padding-top:10px;">
 				<div style="float:left;"><input id='social_google_button' name='wp_social_ring_options[social_google_button]' type='checkbox' value="1" <?php checked($wp_social_ring_options['social_google_button'], 1); ?> /></div>
-				<div style="float:left;margin-left:20px;width:150px;"><?php _e('Google +1',AVOPT) ?></div>
-				<div style="float:left;margin-left:20px;"><g:plusone href="<?php _e('http://wordpress.altervista.org/', AVOPT); ?>" size="medium" callback="plusone_vote"></g:plusone></div>
+				<div style="float:left;margin-left:20px;width:150px;"><?php _e('Google +1',WP_SOCIAL_RING) ?></div>
+				<div style="float:left;margin-left:20px;"><g:plusone href="<?php _e('http://wordpress.altervista.org/', WP_SOCIAL_RING); ?>" size="medium" callback="plusone_vote"></g:plusone></div>
 			</li>
 			<li style="clear:both;padding-top:10px;">
 				<div style="float:left;"><input id='social_pin_it_button' name='wp_social_ring_options[social_pin_it_button]' type='checkbox' value="1" <?php checked($wp_social_ring_options['social_pin_it_button'], 1); ?> /></div>
-				<div style="float:left;margin-left:20px;width:150px;"><?php _e('Pin it',AVOPT) ?></div>
-				<div style="float:left;margin-left:20px;"><a href="http://pinterest.com/pin/create/button/?url=<?php echo urlencode(__('http://wordpress.altervista.org/', AVOPT)); ?>&media=<?php echo urlencode('http://wordpress.altervista.org/logo.jpg'); ?>&description=<?php echo urlencode(__('WordPress tutorials, plugin and themes.', AVOPT)." ".site_url()); ?>" class="pin-it-button" count-layout="horizontal"></a></div>
+				<div style="float:left;margin-left:20px;width:150px;"><?php _e('Pin it',WP_SOCIAL_RING) ?></div>
+				<div style="float:left;margin-left:20px;"><a href="http://pinterest.com/pin/create/button/?url=<?php echo urlencode(__('http://wordpress.altervista.org/', WP_SOCIAL_RING)); ?>&media=<?php echo urlencode('http://wordpress.altervista.org/logo.jpg'); ?>&description=<?php echo urlencode(__('WordPress tutorials, plugin and themes.', WP_SOCIAL_RING)." ".site_url()); ?>" class="pin-it-button" count-layout="horizontal"></a></div>
 			</li>
 		</ul>
 	<?php
