@@ -156,7 +156,6 @@ function social_ring_gen_button_code() {
 			$html .= '<div class="social-ring-button"><iframe src="http://www.facebook.com/plugins/like.php?app_id=131347983616840&amp;href='.urlencode($url).'&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:110px; height:21px;" allowTransparency="true"></iframe></div>';
 		}
 	}
-	
 
 	if($wp_social_ring_options['social_pin_it_button'] == 1) {
 		$html .= '<div class="social-ring-button"><a href="http://pinterest.com/pin/create/button/?url='.urlencode($url);
@@ -165,6 +164,10 @@ function social_ring_gen_button_code() {
 			$html .= '&media='.urlencode($image);
 		}
 		$html .= '&description='.urlencode(esc_attr( strip_tags( stripslashes($title)))).'" class="pin-it-button" count-layout="horizontal"></a></div>';
+	}
+	
+	if($wp_social_ring_options['social_linkedin_button'] == 1) {
+		$html .= '<div class="social-ring-button"><script src="//platform.linkedin.com/in.js" type="text/javascript"></script><script type="IN/Share" data-url="'.$url.'" data-counter="right"></script></div>';
 	}
 
 	$html .= '</div>';

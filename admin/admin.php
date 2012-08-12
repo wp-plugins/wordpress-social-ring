@@ -173,6 +173,13 @@ function print_social_ring_buttons_input() {
 				<div style="float:left;margin-left:20px;width:150px;"><?php _e('Google +1',WP_SOCIAL_RING) ?></div>
 				<div style="float:left;margin-left:20px;"><g:plusone href="<?php _e('http://wordpress.altervista.org/', WP_SOCIAL_RING); ?>" size="medium" callback="plusone_vote"></g:plusone></div>
 			</li>
+			
+			<li style="clear:both;padding-top:10px;">
+				<div style="float:left;"><input id='social_linkedin_button' name='wp_social_ring_options[social_linkedin_button]' type='checkbox' value="1" <?php checked($wp_social_ring_options['social_linkedin_button'], 1); ?> /></div>
+				<div style="float:left;margin-left:20px;width:150px;"><?php _e('LinkedIn',WP_SOCIAL_RING) ?></div>
+				<div style="float:left;margin-left:20px;"><div class="social-ring-button"><script src="//platform.linkedin.com/in.js" type="text/javascript"></script><script type="IN/Share" data-url="http://wordpress.altervista.org/" data-counter="right"></script></div>
+			</li>
+			
 			<li style="clear:both;padding-top:10px;">
 				<div style="float:left;"><input id='social_pin_it_button' name='wp_social_ring_options[social_pin_it_button]' type='checkbox' value="1" <?php checked($wp_social_ring_options['social_pin_it_button'], 1); ?> /></div>
 				<div style="float:left;margin-left:20px;width:150px;"><?php _e('Pin it',WP_SOCIAL_RING) ?></div>
@@ -231,6 +238,7 @@ function wp_social_ring_validate_options( $input ) {
 	$valid['social_twitter_button'] = (isset( $input['social_twitter_button'])) ? 1 : 0;
 	$valid['social_google_button'] = (isset( $input['social_google_button'])) ? 1 : 0;
 	$valid['social_pin_it_button'] = (isset( $input['social_pin_it_button'])) ? 1 : 0;
+	$valid['social_linkedin_button'] = (isset( $input['social_linkedin_button'])) ? 1 : 0;
 	$valid['social_on_home'] = (isset( $input['social_on_home'])) ? 1 : 0;
 	$valid['social_on_pages'] = (isset( $input['social_on_pages'])) ? 1 : 0;
 	$valid['social_on_posts'] = (isset( $input['social_on_posts'])) ? 1 : 0;

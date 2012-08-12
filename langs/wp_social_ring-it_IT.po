@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WordPress Social Ring\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-18 18:43+0100\n"
-"PO-Revision-Date: 2012-06-18 18:44+0100\n"
+"POT-Creation-Date: 2012-08-12 17:15+0100\n"
+"PO-Revision-Date: 2012-08-12 17:15+0100\n"
 "Last-Translator: Niccolo Tapparo\n"
 "Language-Team: AlterVista\n"
 "MIME-Version: 1.0\n"
@@ -54,7 +54,7 @@ msgid "Create your free blog!"
 msgstr "Crea il tuo blog gratis!"
 
 #: admin/admin.php:70
-#: includes/library.php:200
+#: includes/library.php:203
 msgid "en_US"
 msgstr "it_IT"
 
@@ -111,43 +111,47 @@ msgid "Google +1"
 msgstr "Google +1"
 
 #: admin/admin.php:174
-#: admin/admin.php:179
+#: admin/admin.php:186
 msgid "http://wordpress.altervista.org/"
 msgstr "http://wordpress.altervista.org/"
 
-#: admin/admin.php:178
+#: admin/admin.php:179
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: admin/admin.php:185
 msgid "Pin it"
 msgstr "Pin it"
 
-#: admin/admin.php:179
+#: admin/admin.php:186
 msgid "WordPress tutorials, plugin and themes."
 msgstr "Tutorial WordPress, temi e plugin."
 
-#: admin/admin.php:195
+#: admin/admin.php:202
 msgid "Home"
 msgstr "Home"
 
-#: admin/admin.php:199
+#: admin/admin.php:206
 msgid "Pages"
 msgstr "Pagine"
 
-#: admin/admin.php:203
+#: admin/admin.php:210
 msgid "Posts"
 msgstr "Post"
 
-#: admin/admin.php:207
+#: admin/admin.php:214
 msgid "Categories"
 msgstr "Categorie"
 
-#: admin/admin.php:211
+#: admin/admin.php:218
 msgid "Archive"
 msgstr "Archivi"
 
-#: admin/admin.php:248
+#: admin/admin.php:256
 msgid "Social Ring settings"
 msgstr "Impostazioni Social Ring"
 
-#: admin/admin.php:248
+#: admin/admin.php:256
 msgid "Social Ring"
 msgstr "Social Ring"
 
