@@ -15,28 +15,7 @@ function social_ring_add_opengraph_meta() {
 		echo "<meta property=\"og:type\" content=\"article\" />\n";
 		echo "<meta property=\"og:site_name\" content=\"".esc_attr(get_bloginfo('name'))."\" />\n";
 		echo "<meta property=\"og:description\" content=\"".esc_attr(social_ring_make_excerpt($post))."\" />\n";
-		if ( empty( $image ) && function_exists('has_post_thumbnail') && has_post_thumbnail( $post->ID ) ) {
-			$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' );
-			if ( $thumbnail )
-				$image = $thumbnail[0];
-		// If that's not there, grab the first attached image
-		} else {
-			$files = get_children( 
-						array( 
-						'post_parent' => $post->ID,
-						'post_type' => 'attachment',
-						'post_mime_type' => 'image',
-						) 
-					);
-			if ( $files ) {
-				$keys = array_reverse( array_keys( $files ) );
-				$image = image_downsize( $keys[0], 'thumbnail' );
-				$image = $image[0];
-			//if there's no attached image, try to grab first image in content
-			} else {
-				$image = social_ring_get_first_image();
-			}
-		}	
+		$image = social_ring_get_first_image();
 		if ( $image != '' ) {
 			echo "<meta property=\"og:image\" content=\"".esc_attr( $image )."\" />\n";
 		}
@@ -46,16 +25,43 @@ function social_ring_add_opengraph_meta() {
 }
 
 function social_ring_get_first_image() {
-  global $post, $posts;
-  $first_img = '';
-  ob_start();
-  ob_end_clean();
+  
+	global $post, $posts;
+  
+	if ( function_exists('has_post_thumbnail') && has_post_thumbnail( $post->ID ) ) {
+		
+		$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' );
+		if ( $thumbnail )
+			$image = $thumbnail[0];
+			
+	// If that's not there, grab the first attached image
+	} else {
+		
+		$files = get_children( 
+			array( 
+			'post_parent' => $post->ID,
+			'post_type' => 'attachment',
+			'post_mime_type' => 'image',
+			) 
+		);
+		if ( $files ) {
+			$keys = array_reverse( array_keys( $files ) );
+			$image = image_downsize( $keys[0], 'thumbnail' );
+			$image = $image[0];
+		}
+	}
+	//if there's no attached image, try to grab first image in content
+	if(empty($image)) {
+		ob_start();
+		ob_end_clean();
+		$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i',
+		     $post->post_content, $matches);
+		if(!empty($matches[1][0])) {
+		      $image = $matches[1][0];
+		}
+	}
 
-  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i',
-       $post->post_content, $matches);
-  $first_img = $matches [1] [0];
-
-  return $first_img;
+	return $image;
 }
 
 function social_ring_add_css() {

@@ -3,7 +3,7 @@
 Plugin Name: WordPress Social Ring (Facebook Like, Google +1, ReTweet and Pin It)
 Description: Let visitors share posts/pages on Facebook, Twitter and Google+. From admin page you can choose which button display: Facebook Like, Facebook Send, Facebook Share, Google +1 and Twitter.
 Author: Niccol&ograve; Tapparo
-Version: 1.1.7
+Version: 1.1.8
 Author URI: http://wordpress.altervista.org/
 Plugin URI: http://wordpress.altervista.org/en/tag/wordpress-social-ring-en/
 */
