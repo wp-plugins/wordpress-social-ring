@@ -86,14 +86,14 @@ function social_ring_add_css() {
 				margin: 0 !important;
 				padding: 0 !important;
 				line-height: 20px !important;
-				height: 30px !important;
+				height: auto;
 				font-size: 11px;
-				
 			}
 			
 			.social-ring-button {
 				float: left !important;
-				margin: 0 !important;
+				height: 30px;
+				margin: 0 5px 0 0 !important;
 				padding: 0 !important;
 			}
 			
