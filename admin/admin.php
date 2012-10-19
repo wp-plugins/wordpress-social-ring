@@ -6,7 +6,7 @@ function wp_social_ring_setting_page() {
 	
 	<div class="wrap">
 		<?php screen_icon('plugins'); ?>
-		<h2><?php _e('WordPress Social Ring Settings',WP_SOCIAL_RING); ?></h2>
+		<h2><?php _e('Social Network Settings',WP_SOCIAL_RING); ?></h2>
 		<div id="wp-social-ring">
 			<div class="postbox-container" style="width:70%;">
 				<form action="options.php" method="post">
@@ -41,12 +41,24 @@ function wp_social_ring_setting_page() {
 				
 				</form>
 			</div>
+			
 			<div class="postbox-container" style="margin-left:15px;">
-				<div>
-					<a target="_blank" href="<?php _e('http://en.altervista.org/create-free-blog.html?ref=socialring',WP_SOCIAL_RING); ?>">
-								<img alt="<?php _e('Create your free blog!');?>" title="<?php _e('Create your free blog!');?>" src="<?php echo WP_SOCIAL_RING_URL; ?>/admin/images/altervista.gif" height="300" width="180" />
-					</a>
+				<div class="postbox">
+					<h3><?php _e('Help', WP_SOCIAL_RING); ?></h3>
+					<ul style="list-style:circle; padding:10px 0 10px 30px;">
+						<li><a target="_blank" href="http://wordpress.altervista.org/wordpress-social-ring/faq/">FAQ</a></li>
+						<li><a target="_blank" href="http://wordpress.org/support/plugin/wordpress-social-ring">Forum</a></li>
+					</ul>
 				</div>
+				<div class="postbox">
+					<h3><?php _e('News', WP_SOCIAL_RING); ?></h3>
+					<ul style="list-style:circle; padding:10px 0 10px 30px;">
+						<li><a target="_blank" href="http://wordpress.altervista.org/wordpress-social-ring-1-1-9/">WordPress Social Ring 1.1.9</a></li>
+						<li><a target="_blank" href="http://wordpress.altervista.org/wordpress-social-ring-1-1-2-shortcode/">WordPress Social Ring 1.1.2</a></li>
+						<li><a target="_blank" href="http://wordpress.altervista.org/wordpress-social-ring-1-1-template-tag-and-social-widget/">WordPress Social Ring 1.1.1</a></li>
+					</ul>
+				</div>
+				<?php if(strpos($_SERVER['HTTP_HOST'], 'altervista') == false && strpos($_SERVER['HTTP_HOST'], 'giallozafferano') == false) { ?>
 				<div class="postbox" style="min-width:180px !important;margin-top:5px;text-align:center;padding: 8px 0;">
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 						<input type="hidden" name="cmd" value="_s-xclick">
@@ -56,7 +68,14 @@ function wp_social_ring_setting_page() {
 						<img alt="" border="0" src="https://www.paypalobjects.com/it_IT/i/scr/pixel.gif" width="1" height="1">
 					</form>
 				</div>
+				<div style="text-align:center">
+					<a target="_blank" href="<?php _e('http://en.altervista.org/create-free-blog.html?ref=socialring',WP_SOCIAL_RING); ?>">
+								<img alt="<?php _e('Create your free blog!');?>" title="<?php _e('Create your free blog!');?>" src="http://im.altervista.org/wordpress/images/promo.gif" height="300" width="180" />
+					</a>
+				</div>
+				<?php } ?>
 			</div>
+			
 		</div>
 	</div>
 	<?php
@@ -252,8 +271,8 @@ function wp_social_ring_validate_options( $input ) {
 
 add_action('admin_menu', 'register_social_ring_admin_menu');
 function register_social_ring_admin_menu() {
-
-	$page = add_menu_page(__('Social Ring settings',WP_SOCIAL_RING),__('Social Ring',WP_SOCIAL_RING),'manage_options',WP_SOCIAL_RING,WP_SOCIAL_RING.'_setting_page',plugins_url('/images/av-16x16.png',__FILE__));
+	
+	$page = add_options_page(__('Social Network', WP_SOCIAL_RING), __('Social Network', WP_SOCIAL_RING), 'manage_options', 'wp_social_ring', 'wp_social_ring_setting_page');
 	add_action('admin_print_styles-' . $page, 'add_wp_social_ring_css_js');
 
 }

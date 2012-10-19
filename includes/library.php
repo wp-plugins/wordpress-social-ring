@@ -1,29 +1,5 @@
 <?php
 
-function social_ring_add_opengraph_namespace( $output ) {
-	return $output.' xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml"';
-}
-		
-function social_ring_add_opengraph_meta() {
-	
-	global $post;
-	
-	if (is_singular()) {
-		echo "\n\n<!-- Social Ring: Facebook Open Graph Meta Start -->\n";
-		echo "<meta property=\"og:url\" content=\"".esc_attr(get_permalink($post->ID))."\" />\n";
-		echo "<meta property=\"og:title\" content=\"".esc_attr( strip_tags( stripslashes($post->post_title)))."\" />\n";
-		echo "<meta property=\"og:type\" content=\"article\" />\n";
-		echo "<meta property=\"og:site_name\" content=\"".esc_attr(get_bloginfo('name'))."\" />\n";
-		echo "<meta property=\"og:description\" content=\"".esc_attr(social_ring_make_excerpt($post))."\" />\n";
-		$image = social_ring_get_first_image();
-		if ( $image != '' ) {
-			echo "<meta property=\"og:image\" content=\"".esc_attr( $image )."\" />\n";
-		}
-		echo "<!-- Social Ring: Facebook Open Graph Meta End -->\n\n";
-	}
-	
-}
-
 function social_ring_get_first_image() {
   
 	global $post, $posts;
