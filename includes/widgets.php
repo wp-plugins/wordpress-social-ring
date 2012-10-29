@@ -29,8 +29,8 @@ function form($instance) {
 				'tweet_hint_desc' => '',
 				'tweet_text' => get_bloginfo('name').' - '.get_bloginfo('description'),
 				'border_color' => 'D0D0D0',
-				'box_padding' => 24,
-				'button_margin' => 10
+				'box_padding' => 20,
+				'button_margin' => 8
 			);
 		
 		$instance = wp_parse_args( (array) $instance, $defaults );

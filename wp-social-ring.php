@@ -55,24 +55,9 @@ function social_ring_install() {
 				'twitter_language' => 'en',
 				'button_counter' => 'horizontal'
 			);
-		} else {
-			if(!isset($wp_social_ring_options['language'])) {
-				$wp_social_ring_options['language'] = 'English';
-			}
-			if(!isset($wp_social_ring_options['facebook_language'])) {
-				$wp_social_ring_options['facebook_language'] = 'en_US';
-			}
-			if(!isset($wp_social_ring_options['google_language'])) {
-				$wp_social_ring_options['google_language'] = 'en-US';
-			}
-			if(!isset($wp_social_ring_options['twitter_language'])) {
-				$wp_social_ring_options['twitter_language'] = 'en';
-			}
-			if(!isset($wp_social_ring_options['button_counter'])) {
-				$wp_social_ring_options['button_counter'] = 'horizontal';
-			}
+			update_option(WP_SOCIAL_RING.'_options', $wp_social_ring_options);
 		}
-		update_option(WP_SOCIAL_RING.'_options', $wp_social_ring_options);
+		
 	}
 }
 
