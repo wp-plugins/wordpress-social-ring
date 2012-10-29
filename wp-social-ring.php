@@ -3,7 +3,7 @@
 Plugin Name: WordPress Social Ring (Facebook Like, Google +1, ReTweet and Pin It)
 Description: Let visitors share posts/pages on Facebook, Twitter and Google+. From admin page you can choose which button display: Facebook Like, Facebook Send, Facebook Share, Google +1 and Twitter.
 Author: Niccol&ograve; Tapparo
-Version: 1.1.9
+Version: 1.2.0
 Author URI: http://wordpress.altervista.org/
 Plugin URI: http://wordpress.altervista.org/wordpress-social-ring/
 */
@@ -26,33 +26,52 @@ if(is_admin()) {
 	include WP_SOCIAL_RING_PATH.'/admin/admin.php';
 }
 
-add_action('wp_head', 'social_ring_add_css');
-add_filter('the_content', 'social_ring_add_sharing');
-add_action('wp_footer', 'social_ring_add_js');
-add_shortcode('socialring', 'social_ring_shortcode');
-
 function social_ring_install() {
 
-	if(version_compare(get_bloginfo('version'), '3.2', '<')) {
+	if(version_compare(get_bloginfo('version'), '3.3', '<')) {
 		deactivate_plugins(basename(__FILE__));
 	} else {
-		$wp_social_ring_options = array (
-			'social_facebook_like_button' => 0,
-			'social_facebook_send_button' => 0,
-			'social_facebook_share_button' => 0,
-			'social_twitter_button' => 0,
-			'social_google_button' => 0,
-			'social_pin_it_button' => 0,
-			'social_on_home' => 0,
-			'social_on_pages' => 0,
-			'social_on_posts' => 0,
-			'social_on_category' => 0,
-			'social_on_archive' => 0,
-			'social_before_content' => 0,
-			'social_after_content' => 0,
-			'opengraph' => 0,
-			'social_cross_plugin_compatibility' => 0,
-		);
+		$wp_social_ring_options = get_option(WP_SOCIAL_RING.'_options');
+		if(empty($wp_social_ring_options)) {
+			$wp_social_ring_options = array (
+				'social_facebook_like_button' => 1,
+				'social_facebook_send_button' => 0,
+				'social_facebook_share_button' => 1,
+				'social_twitter_button' => 1,
+				'social_google_button' => 1,
+				'social_pin_it_button' => 1,
+				'social_linkedin_button' => 1,
+				'social_stumble_button' => 0,
+				'social_on_home' => 0,
+				'social_on_pages' => 0,
+				'social_on_posts' => 1,
+				'social_on_category' => 0,
+				'social_on_archive' => 0,
+				'social_before_content' => 1,
+				'social_after_content' => 0,
+				'language' => 'Englsh',
+				'facebook_language' => 'en_US',
+				'google_language' => 'en-US',
+				'twitter_language' => 'en',
+				'button_counter' => 'horizontal'
+			);
+		} else {
+			if(!isset($wp_social_ring_options['language'])) {
+				$wp_social_ring_options['language'] = 'English';
+			}
+			if(!isset($wp_social_ring_options['facebook_language'])) {
+				$wp_social_ring_options['facebook_language'] = 'en_US';
+			}
+			if(!isset($wp_social_ring_options['google_language'])) {
+				$wp_social_ring_options['google_language'] = 'en-US';
+			}
+			if(!isset($wp_social_ring_options['twitter_language'])) {
+				$wp_social_ring_options['twitter_language'] = 'en';
+			}
+			if(!isset($wp_social_ring_options['button_counter'])) {
+				$wp_social_ring_options['button_counter'] = 'horizontal';
+			}
+		}
 		update_option(WP_SOCIAL_RING.'_options', $wp_social_ring_options);
 	}
 }
