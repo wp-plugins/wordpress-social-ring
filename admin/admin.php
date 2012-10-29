@@ -454,6 +454,7 @@ class WordPress_Social_Ring_Admin {
 		$valid['social_on_category'] = (isset( $input['social_on_category'])) ? 1 : 0;
 		$valid['social_on_archive'] = (isset( $input['social_on_archive'])) ? 1 : 0;
 		$valid['social_before_content'] = (isset( $input['social_before_content'])) ? 1 : 0;
+		$valid['social_after_content'] = (isset( $input['social_after_content'])) ? 1 : 0;
 		$valid['button_counter'] = ($input['button_counter'] == 'vertical') || ($input['button_counter'] == 'none') ? $input['button_counter'] : 'horizontal';
 		if(isset($this->languages[$input['language']])) {
 			$valid['language'] = $input['language'];
