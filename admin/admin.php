@@ -160,8 +160,24 @@ class WordPress_Social_Ring_Admin {
 	
 	function __construct() {
 		$this->options = get_option(WP_SOCIAL_RING.'_options');
+		$this->set_default_options();
 		add_action('admin_menu', array($this, 'register_option_page'));
 		add_action('admin_init', array($this, 'register_options'));
+	}
+	
+	function set_default_options() {
+		if(!isset($this->options['language'])) {
+			$this->options['language'] = 'English';
+		}
+		if(!isset($this->options['facebook_language'])) {
+			$this->options['facebook_language'] = 'en_US';
+		}
+		if(!isset($this->options['google_language'])) {
+			$this->options['google_language'] = 'en-US';
+		}
+		if(!isset($this->options['twitter_language'])) {
+			$this->options['twitter_language'] = 'en';
+		}
 	}
 	
 	function register_option_page() {

@@ -34,6 +34,19 @@ http://wordpress.altervista.org/category/wordpress-social-ring/
 
 == Changelog ==
 
+= 1.2.1 =
+
+* Bugfix
+
+= 1.2.0 =
+
+* Totally rewritten with object oriented approach
+* Added StumbleUpon Button
+* Added Button Language
+* Added Counter Style
+* Changed Facebook Share Button
+* Bugfix
+
 = 1.1.9 =
 
 * Bugfix

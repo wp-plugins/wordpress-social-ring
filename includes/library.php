@@ -11,10 +11,71 @@ class WordPress_Social_Ring {
 	
 	function __construct() {
 		$this->options = get_option(WP_SOCIAL_RING.'_options');
+		$this->set_default_options();
 		add_action('wp_head', array($this, 'frontend_css'));
 		add_filter('the_content', array($this, 'add_sharing_buttons'));
 		add_action('wp_footer', array($this, 'add_footer_js'));
 		add_shortcode('socialring', array($this, 'shortcode'));
+	}
+	
+	function set_default_options() {
+		if(!isset($this->options['social_facebook_like_button'])) {
+			$this->options['social_facebook_like_button'] = 1;
+		}
+		if(!isset($this->options['social_twitter_button'])) {
+			$this->options['social_twitter_button'] = 1;
+		}
+		if(!isset($this->options['social_facebook_share_button'])) {
+			$this->options['social_facebook_share_button'] = 0;
+		}
+		if(!isset($this->options['social_google_button'])) {
+			$this->options['social_google_button'] = 1;
+		}
+		if(!isset($this->options['social_pin_it_button'])) {
+			$this->options['social_pin_it_button'] = 0;
+		}
+		if(!isset($this->options['social_linkedin_button'])) {
+			$this->options['social_linkedin_button'] = 0;
+		}
+		if(!isset($this->options['social_stumble_button'])) {
+			$this->options['social_stumble_button'] = 0;
+		}
+		if(!isset($this->options['social_on_home'])) {
+			$this->options['social_on_home'] = 0;
+		}
+		if(!isset($this->options['social_on_pages'])) {
+			$this->options['social_on_pages'] = 0;
+		}
+		if(!isset($this->options['social_on_posts'])) {
+			$this->options['social_on_posts'] = 1;
+		}
+		if(!isset($this->options['social_on_category'])) {
+			$this->options['social_on_category'] = 0;
+		}
+		if(!isset($this->options['social_on_archive'])) {
+			$this->options['social_on_archive'] = 0;
+		}
+		if(!isset($this->options['social_before_content'])) {
+			$this->options['social_before_content'] = 1;
+		}
+		if(!isset($this->options['social_after_content'])) {
+			$this->options['social_after_content'] = 0;
+		}
+		if(!isset($this->options['language'])) {
+			$this->options['language'] = 'English';
+		}
+		if(!isset($this->options['facebook_language'])) {
+			$this->options['facebook_language'] = 'en_US';
+		}
+		if(!isset($this->options['google_language'])) {
+			$this->options['google_language'] = 'en-US';
+		}
+		if(!isset($this->options['twitter_language'])) {
+			$this->options['twitter_language'] = 'en';
+		}
+		if(!isset($this->options['button_counter'])) {
+			$this->options['button_counter'] = 'horizontal';
+		}
 	}
 	
 	function add_sharing_buttons($content) {
