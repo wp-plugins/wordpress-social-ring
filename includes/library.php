@@ -185,7 +185,7 @@ class WordPress_Social_Ring {
 	}
 	
 	function twitter_html() {
-		$twitter_html = '<a href="http://twitter.com/share" lang="'.$this->options['twitter_language'].'" data-url="'.$this->post_url.'" data-text="'.$this->post_title.'" ';
+		$twitter_html = '<a rel="nofollow" href="http://twitter.com/share" lang="'.$this->options['twitter_language'].'" data-url="'.$this->post_url.'" data-text="'.$this->post_title.'" ';
 		if($this->options['button_counter'] == "horizontal") {
 			$twitter_html .= 'data-count="horizontal"';
 		} elseif($this->options['button_counter'] == "vertical") {
@@ -242,7 +242,7 @@ class WordPress_Social_Ring {
 	}
 	
 	function pin_it_html() {
-		$pin_it_html = '<a href="http://pinterest.com/pin/create/button/?url='.$this->post_encoded_url;
+		$pin_it_html = '<a rel="nofollow" href="http://pinterest.com/pin/create/button/?url='.$this->post_encoded_url;
 		$image = $this->get_first_image();
 		if($image > '') {
 			$pin_it_html .= '&media='.urlencode($image);
@@ -260,7 +260,7 @@ class WordPress_Social_Ring {
 	}
 	
 	function linkedin_html() {
-		$linkedin_html = '<script src="//platform.linkedin.com/in.js" type="text/javascript"></script><script type="IN/Share" data-url="'.$this->post_encoded_url.'" ';
+		$linkedin_html = '<script src="//platform.linkedin.com/in.js" type="text/javascript"></script><script type="IN/Share" data-url="'.$this->post_url.'" ';
 		if($this->options['button_counter'] == "horizontal") {
 			$linkedin_html .= 'data-counter="right" ';
 		} elseif($this->options['button_counter'] == "vertical") {
