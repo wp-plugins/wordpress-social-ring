@@ -198,7 +198,7 @@ class WordPress_Social_Ring {
 	}
 	
 	function google_plus_one_html() {
-		$google_html = '<div class="g-plusone" ';
+		$google_html = '<div class="g-plusone" data-href="' . $this->post_url . '" ';
 		if($this->options['button_counter'] == "horizontal") {
 			$google_html .= 'data-size="medium" ';
 		} elseif($this->options['button_counter'] == "vertical") {
@@ -333,7 +333,15 @@ class WordPress_Social_Ring {
 	function add_footer_js() {
 	?>
 		<!-- Social Ring JS Start -->
-	<div id="fb-root"></div><script src="http://connect.facebook.net/<?php echo $this->options['facebook_language']; ?>/all.js#xfbml=1"></script>
+	<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/<?php echo $this->options['facebook_language']; ?>/all.js#xfbml=1&appId=265615193468551";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 	<script type="text/javascript">
 		window.___gcfg = {
 		  lang: '<?php echo $this->options['google_language']; ?>'
