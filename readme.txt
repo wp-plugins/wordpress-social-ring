@@ -13,7 +13,7 @@ Tags: Google +1, Facebook, Facebook Like, Facebook Share, Open Graph Meta Tag, T
 Requires at least: 3.7
 
 
-Tested up to: 3.8
+Tested up to: 3.8.1
 
 
 Version: 1.2.6
