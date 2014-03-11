@@ -1663,8 +1663,11 @@ class WordPress_Social_Ring_Admin {
 		$social_all_buttons_list = array( array( 'social_facebook_like_button', 'Facebook Like' ), array( 'social_facebook_share_button', 'Facebook Share' ), array( 'social_twitter_button', 'Twitter' ), array( 'social_google_button', 'Google +1' ), array( 'social_google_share_button', 'Google +1 Share' ), array( 'social_pin_it_button', 'Pin it' ), array( 'social_linkedin_button', 'LinkedIn' ), array( 'social_stumble_button', 'StumbleUpon' ), array( 'social_print_pdf_email_button', 'Print, PDF, Email' ) );
 
 
-		$sr_buttons = explode("|", $this->options['social_visible_buttons_list']);
-
+		if( isset( $this->options['social_visible_buttons_list'] ) ) {
+			$sr_buttons = explode("|", $this->options['social_visible_buttons_list']);
+		} else {
+			$sr_buttons = array();
+		}
 
 		
 

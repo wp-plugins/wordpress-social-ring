@@ -1245,8 +1245,11 @@ class WordPress_Social_Ring {
 		}
 
 
-
-		return $image;
+		if( ! empty( $image ) ) {
+			return $image;
+		} else {
+			return null;
+		}
 
 	}
 
