@@ -16,10 +16,10 @@ Requires at least: 3.7
 Tested up to: 3.8.1
 
 
-Version: 1.2.7
+Version: 1.2.8
 
 
-Stable tag: 1.2.7
+Stable tag: 1.2.8
 
 
 
@@ -102,6 +102,10 @@ http://wordpress.altervista.org/category/wordpress-social-ring/
 
 == Changelog ==
 
+
+= 1.2.8 =
+
+* Bugfix
 
 = 1.2.7 =
 

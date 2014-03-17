@@ -1393,7 +1393,7 @@ function social_ring_show() {
 
 
 
-$_GLOBALS['$wp_social_ring'] = new WordPress_Social_Ring();
+$GLOBALS['wp_social_ring'] = new WordPress_Social_Ring();
 
 
 
