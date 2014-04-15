@@ -66,12 +66,4 @@ function social_ring_install() {
 		update_option(WP_SOCIAL_RING.'_options', $wp_social_ring_options);
 	}
 }
-
-
-
-
-
-
-
-
 ?>
