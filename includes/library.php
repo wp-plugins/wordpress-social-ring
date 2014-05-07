@@ -387,15 +387,14 @@ class WordPress_Social_Ring {
 	}
 	
 	function facebook_share_html() {
-		$fb_share_html = '<fb:share-button href="'.$this->post_url.'" width="140" ';
-		if($this->options['button_counter'] == "horizontal") {
-			$fb_share_html .= 'type="button_count"';
-		} elseif($this->options['button_counter'] == "vertical") {
-			$fb_share_html .= 'type="box_count"';
-		} elseif($this->options['button_counter'] == "none") {
-			$fb_share_html .= 'type="button"';
+		$fb_share_lang = "share";
+		if( $this->options['facebook_language'] == "it_IT" ) {
+			$fb_share_lang = "condividi";
 		}
-		$fb_share_html .= '></fb:share>';
+		$fb_share_html = '<a href="https://www.facebook.com/sharer/sharer.php?s=100&p[url]='.$this->post_url.'" target="_blank"
+							onclick="window.open(\'https://www.facebook.com/sharer/sharer.php?s=100&p[url]='.$this->post_url.'\', \'newwindow\', \'width=600, height=450\'); return false;" >
+							<img src="' . plugins_url('../admin/images/sr-fb-' . $fb_share_lang . '.png', __FILE__) . '" alt="' . __('Share') . '"/>
+						</a>';
 		return $fb_share_html;
 	}
  	
@@ -490,103 +489,7 @@ class WordPress_Social_Ring {
 						$print_pdf_email_html .= '</a>';
 		return $print_pdf_email_html;
 	}
-	/* 
-	function print_html() {
-		
-		$print_html = '<script>
-						var pfHeaderTagline = \'' . $this->post_title . '\';
-						var pfdisableClickToDel = 0;
-						var pfHideImages = 0;
-						var pfImageDisplayStyle = \'center\';
-						var pfDisablePDF = 1;
-						var pfDisableEmail = 1;
-						var pfDisablePrint = 0;
-						var pfCustomCSS = \'\';
-						var pfBtVersion=\'1\';
-						(function(){var js, pf;pf = document.createElement(\'script\');
-						pf.type = \'text/javascript\';
-						if(\'https:\' == document.location.protocol)
-							{js=\'https://pf-cdn.printfriendly.com/ssl/main.js\'}
-						else
-							{js=\'http://cdn.printfriendly.com/printfriendly.js\'}
-						pf.src=js;document.getElementsByTagName(\'head\')[0].appendChild(pf)})();
-						</script>
-						<a href="http://www.printfriendly.com/print?url=' . $this->post_url . '" 
-							style="color:#6D9F00;text-decoration:none;" 
-							class="printfriendly" onclick="window.print();return false;" 
-							title="Print or Send">
-							<img style="border:none;-webkit-box-shadow:none;box-shadow:none;" 
-								src="http://prvdevav801.altervista.org/wp/wp-content/plugins/wordpress-social-ring/admin/images/print.png" 
-							alt=""/>
-						</a>';
-		return $print_html;
-	}
 	
-	function create_pdf_html() {
-		
-		$create_pdf_html = '<script>
-						var pfHeaderTagline = \'' . $this->post_title . '\';
-						var pfdisableClickToDel = 0;
-						var pfHideImages = 0;
-						var pfImageDisplayStyle = \'center\';
-						var pfDisablePDF = 0;
-						var pfDisableEmail = 1;
-						var pfDisablePrint = 1;
-						var pfCustomCSS = \'\';
-						var pfBtVersion=\'1\';
-						(function(){var js, pf;pf = document.createElement(\'script\');
-						pf.type = \'text/javascript\';
-						if(\'https:\' == document.location.protocol)
-							{js=\'https://pf-cdn.printfriendly.com/ssl/main.js\'}
-						else
-							{js=\'http://cdn.printfriendly.com/printfriendly.js\'}
-						pf.src=js;document.getElementsByTagName(\'head\')[0].appendChild(pf)})();
-						</script>
-						<a href="http://www.printfriendly.com/print?url=' . $this->post_url . '" 
-							style="color:#6D9F00;text-decoration:none;" 
-							class="printfriendly" onclick="window.print();return false;" 
-							title="Print or Send">
-							<img style="border:none;-webkit-box-shadow:none;box-shadow:none;" 
-								src="http://prvdevav801.altervista.org/wp/wp-content/plugins/wordpress-social-ring/admin/images/pdf.png" 
-							alt=""/>
-							<img style="border:none;-webkit-box-shadow:none;box-shadow:none;" 
-								src="http://prvdevav801.altervista.org/wp/wp-content/plugins/wordpress-social-ring/admin/images/email.png" 
-							alt=""/>
-						</a>';
-		return $create_pdf_html;
-	}
-	
-	function send_email_html() {
-		
-		$send_email_html = '<script>
-						var pfHeaderTagline = \'' . $this->post_title . '\';
-						var pfdisableClickToDel = 0;
-						var pfHideImages = 0;
-						var pfImageDisplayStyle = \'center\';
-						var pfDisablePDF = 1;
-						var pfDisableEmail = 0;
-						var pfDisablePrint = 1;
-						var pfCustomCSS = \'\';
-						var pfBtVersion=\'1\';
-						(function(){var js, pf;pf = document.createElement(\'script\');
-						pf.type = \'text/javascript\';
-						if(\'https:\' == document.location.protocol)
-							{js=\'https://pf-cdn.printfriendly.com/ssl/main.js\'}
-						else
-							{js=\'http://cdn.printfriendly.com/printfriendly.js\'}
-						pf.src=js;document.getElementsByTagName(\'head\')[0].appendChild(pf)})();
-						</script>
-						<a href="http://www.printfriendly.com/print?url=' . $this->post_url . '" 
-							style="color:#6D9F00;text-decoration:none;" 
-							class="printfriendly" onclick="window.print();return false;" 
-							title="Print or Send">
-							<img style="border:none;-webkit-box-shadow:none;box-shadow:none;" 
-								src="http://prvdevav801.altervista.org/wp/wp-content/plugins/wordpress-social-ring/admin/images/email.png" 
-							alt=""/>
-						</a>';
-		return $send_email_html;
-	}
-	 */
 	function get_first_image() {
 		global $post;
 		//check if post has thumbnail
