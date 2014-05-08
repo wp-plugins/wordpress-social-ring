@@ -312,27 +312,9 @@ class WordPress_Social_Ring {
 					$html .= $this->print_pdf_email_html();
 					$html .= $this->button_after();
 				}
-					
-					//if($this->options['social_print_button'] == 1 || $this->options['social_create_pdf_button'] == 1 || $this->options['social_send_email_button'] == 1) {
 			}
 		}
-		
-		
-/*		if($this->options['social_print_button'] == 1) {
-			$html .= $this->button_before();
-			$html .= $this->print_html();
-			$html .= $this->button_after();
-		}
- 		if($this->options['social_create_pdf_button'] == 1) {
-			$html .= $this->button_before();
-			$html .= $this->create_pdf_html();
-			$html .= $this->button_after();
-		}
-		if($this->options['social_send_email_button'] == 1) {
-			$html .= $this->button_before();
-			$html .= $this->send_email_html();
-			$html .= $this->button_after();
-		} */
+	
 		$html .= '</div>';
 		$html .= '<!-- Social Ring Buttons End -->'."\n";
 		return $html;
@@ -538,31 +520,56 @@ class WordPress_Social_Ring {
 	}
 	
 	function add_footer_js() {
+		if( $this->print_check() == 1 ) {
 	?>
-		<!-- Social Ring JS Start -->
-	<div id="fb-root"></div><script src="http://connect.facebook.net/<?php echo $this->options['facebook_language']; ?>/all.js#xfbml=1"></script>
-	<script type="text/javascript">
-		window.___gcfg = {
-		  lang: '<?php echo $this->options['google_language']; ?>'
-		};
-		(function() {
-			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-			po.src = 'https://apis.google.com/js/plusone.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-		})();
-	</script>
-	<script type='text/javascript' src='https://apis.google.com/js/plusone.js'></script>
-	<script type='text/javascript' src='http://platform.twitter.com/widgets.js'></script>
-        <script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script>
-	<script type="text/javascript">
-		(function() {
-		  var li = document.createElement('script'); li.type = 'text/javascript'; li.async = true;
-		  li.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + '//platform.stumbleupon.com/1/widgets.js';
-		  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(li, s);
-		})();
-	</script>
+			<!-- Social Ring JS Start -->
+			<?php
+			if($this->options['social_visible_buttons_list'] != "")
+			{
+				$google_loaded = false;
+				$facebook_loaded = false;
+				$sr_buttons = explode("|", $this->options['social_visible_buttons_list']);
+				for($i = 0; $i < count($sr_buttons); $i++)
+				{
+					if($sr_buttons[$i] == 'social_twitter_button') {
+						echo "<script type='text/javascript' src='http://platform.twitter.com/widgets.js'></script>\n";
+					}
+					elseif( ( $sr_buttons[$i] == 'social_google_button' || $sr_buttons[$i] == 'social_google_share_button' ) && !$google_loaded ) {
+						$google_loaded = true;
+						echo "<script type=\"text/javascript\">
+								window.___gcfg = {
+								  lang: '" . $this->options['google_language'] . "'
+								};
+								(function() {
+									var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+									po.src = 'https://apis.google.com/js/plusone.js';
+									var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+								})();
+							</script>
+							<script type='text/javascript' src='https://apis.google.com/js/plusone.js'></script>\n";
+					}
+					elseif( ( $sr_buttons[$i] == 'social_facebook_share_button' || $sr_buttons[$i] == 'social_facebook_like_button' ) && !$facebook_loaded ) {
+						$facebook_loaded = true;
+						echo "<div id=\"fb-root\"></div><script src=\"http://connect.facebook.net/" . $this->options['facebook_language'] . "/all.js#xfbml=1\"></script>\n";
+					}
+					elseif($sr_buttons[$i] == 'social_pin_it_button') {
+						echo '<script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script>\n';
+					}
+					elseif($sr_buttons[$i] == 'social_stumble_button') {
+						echo "<script type=\"text/javascript\">
+								(function() {
+								  var li = document.createElement('script'); li.type = 'text/javascript'; li.async = true;
+								  li.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + '//platform.stumbleupon.com/1/widgets.js';
+								  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(li, s);
+								})();
+							</script>\n";
+					}
+				}
+			}
+		?>
 		<!-- Social Ring JS End -->
 	<?php
+		}
 	}
 	
 	function print_check() {
