@@ -375,7 +375,7 @@ class WordPress_Social_Ring {
 		}
 		$fb_share_html = '<a href="https://www.facebook.com/sharer/sharer.php?s=100&p[url]='.$this->post_url.'" target="_blank"
 							onclick="window.open(\'https://www.facebook.com/sharer/sharer.php?s=100&p[url]='.$this->post_url.'\', \'newwindow\', \'width=600, height=450\'); return false;" >
-							<img src="' . plugins_url('../admin/images/sr-fb-' . $fb_share_lang . '.png', __FILE__) . '" alt="' . __('Share') . '"/>
+							<img style="display:block; background: none; padding: 0px; border:0px;" src="' . plugins_url('../admin/images/sr-fb-' . $fb_share_lang . '.png', __FILE__) . '" alt="' . __('Share') . '"/>
 						</a>';
 		return $fb_share_html;
 	}
@@ -460,12 +460,12 @@ class WordPress_Social_Ring {
 							style="color:#6D9F00;text-decoration:none;" 
 							class="printfriendly" onclick="window.print();return false;" 
 							title="Print or Send">';
-						$print_pdf_email_html .= '<img style="border:none;-webkit-box-shadow:none;box-shadow:none;margin-right:5px;" border="0" height="20" width="30"
+						$print_pdf_email_html .= '<img style="background: none; padding: 0px; border:none;-webkit-box-shadow:none;box-shadow:none;margin-right:5px;" border="0" height="20" width="30"
 											src="' . plugins_url('../admin/images/sr-print.png', __FILE__) . '"	alt=""/>';
-						$print_pdf_email_html .= '<img style="border:none;-webkit-box-shadow:none;box-shadow:none;margin-right:5px;" border="0" height="20" width="30"
+						$print_pdf_email_html .= '<img style="background: none; padding: 0px; border:none;-webkit-box-shadow:none;box-shadow:none;margin-right:5px;" border="0" height="20" width="30"
 											src="' . plugins_url('../admin/images/sr-pdf.png', __FILE__) . '" 
 										alt=""/>';
-						$print_pdf_email_html .= '<img style="border:none;-webkit-box-shadow:none;box-shadow:none;margin-right:5px;" border="0" height="20" width="30"
+						$print_pdf_email_html .= '<img style="background: none; padding: 0px; border:none;-webkit-box-shadow:none;box-shadow:none;margin-right:5px;" border="0" height="20" width="30"
 											src="' . plugins_url('../admin/images/sr-email.png', __FILE__) . '" 
 										alt=""/>';
 						$print_pdf_email_html .= '</a>';
