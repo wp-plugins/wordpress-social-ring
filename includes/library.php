@@ -532,7 +532,7 @@ class WordPress_Social_Ring {
 				for($i = 0; $i < count($sr_buttons); $i++)
 				{
 					if($sr_buttons[$i] == 'social_twitter_button') {
-						echo "<script type='text/javascript' src='http://platform.twitter.com/widgets.js'></script>\n";
+						echo "<script type='text/javascript' src='http://platform.twitter.com/widgets.js'></script>";
 					}
 					elseif( ( $sr_buttons[$i] == 'social_google_button' || $sr_buttons[$i] == 'social_google_share_button' ) && !$google_loaded ) {
 						$google_loaded = true;
@@ -546,14 +546,14 @@ class WordPress_Social_Ring {
 									var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
 								})();
 							</script>
-							<script type='text/javascript' src='https://apis.google.com/js/plusone.js'></script>\n";
+							<script type='text/javascript' src='https://apis.google.com/js/plusone.js'></script>";
 					}
 					elseif( ( $sr_buttons[$i] == 'social_facebook_share_button' || $sr_buttons[$i] == 'social_facebook_like_button' ) && !$facebook_loaded ) {
 						$facebook_loaded = true;
-						echo "<div id=\"fb-root\"></div><script src=\"http://connect.facebook.net/" . $this->options['facebook_language'] . "/all.js#xfbml=1\"></script>\n";
+						echo "<div id=\"fb-root\"></div><script src=\"http://connect.facebook.net/" . $this->options['facebook_language'] . "/all.js#xfbml=1\"></script>";
 					}
 					elseif($sr_buttons[$i] == 'social_pin_it_button') {
-						echo '<script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script>\n';
+						echo '<script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script>';
 					}
 					elseif($sr_buttons[$i] == 'social_stumble_button') {
 						echo "<script type=\"text/javascript\">
@@ -562,7 +562,7 @@ class WordPress_Social_Ring {
 								  li.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + '//platform.stumbleupon.com/1/widgets.js';
 								  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(li, s);
 								})();
-							</script>\n";
+							</script>";
 					}
 				}
 			}

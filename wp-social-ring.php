@@ -5,7 +5,7 @@
 Plugin Name: WordPress Social Ring
 Description: Let visitors share posts/pages on Social Networks.
 Author: Niccol&ograve; Tapparo & Fabio Gioria
-Version: 1.2.12
+Version: 1.2.13
 Author URI: http://wordpress.altervista.org/
 Plugin URI: http://wordpress.altervista.org/wordpress-social-ring/
 */
