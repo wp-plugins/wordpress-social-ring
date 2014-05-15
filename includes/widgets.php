@@ -149,6 +149,21 @@ function form($instance) {
 		
 		<div class="clear"></div>
 	</div>
+	<!-- Social Ring Widget JS Start -->
+	<script type='text/javascript' src='http://platform.twitter.com/widgets.js'></script>
+	<script type=\"text/javascript\">
+		window.___gcfg = {
+		  lang: '<?php echo $this->options['google_language']; ?>'
+		};
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+	<script type='text/javascript' src='https://apis.google.com/js/plusone.js'></script>
+	<div id="fb-root"></div><script src="http://connect.facebook.net/it_IT/all.js#xfbml=1"></script>
+	<!-- Social Ring Widget JS End -->
 <?php
 	echo $after_widget."\n";
 	}
