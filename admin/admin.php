@@ -5,7 +5,11 @@ class WordPress_Social_Ring_Admin {
 	private $options;
 	private $retrocompatibility;
 	private $languages = array(	
-		
+		'English' => array(
+			'Facebook'	=> 	'en_US',
+			'Google'	=> 	'en-US',
+			'Twitter' 	=>	'en'
+		),
 		'Afrikaans' => array(
 			'Facebook'	=> 	'af_ZA',
 			'Google'	=> 	'af',
@@ -40,11 +44,6 @@ class WordPress_Social_Ring_Admin {
 			'Facebook'	=> 	'fr_FR',
 			'Google'	=> 	'fr',
 			'Twitter' 	=>	'fr'
-		),
-		'English' => array(
-			'Facebook'	=> 	'en_US',
-			'Google'	=> 	'en-US',
-			'Twitter' 	=>	'en'
 		),
 		'German' => array(
 			'Facebook'	=> 	'de_DE',
@@ -303,7 +302,7 @@ class WordPress_Social_Ring_Admin {
 		<h2><?php _e('Social Network Settings',WP_SOCIAL_RING); ?></h2>
 	  
 		<div id="wp-social-ring">
-			<div class="postbox-container" style="width:70%;">
+			<div class="postbox-container" style="width:80%;">
 					<form id="form-primary" action="options.php" method="post">
 						<div class="postbox">
 							<?php settings_fields(WP_SOCIAL_RING.'_options'); ?>
@@ -337,42 +336,7 @@ class WordPress_Social_Ring_Admin {
 						
 				</form>
 			</div>
-			<div class="postbox-container" style="margin-left:15px;">
-				<div class="postbox">
-					<h3><?php _e('Help', WP_SOCIAL_RING); ?></h3>
-					<ul style="list-style:circle; padding:10px 0 10px 30px;">
-						<li><a target="_blank" href="http://wordpress.altervista.org/wordpress-social-ring/faq/">FAQ</a></li>
-						<li><a target="_blank" href="http://wordpress.org/support/plugin/wordpress-social-ring">Forum</a></li>
-					</ul>
-				</div>
-				<div class="postbox">
-					<h3><?php _e('News', WP_SOCIAL_RING); ?></h3>
-					<ul style="list-style:circle; padding:10px 0 10px 30px;">
-						<li><a target="_blank" href="http://wordpress.altervista.org/wordpress-social-ring-1-2-2/">WordPress Social Ring 1.2.2</a></li>
-						<li><a target="_blank" href="http://wordpress.altervista.org/wp-social-ring-1-2-0/">WordPress Social Ring 1.2.0</a></li>
-						<li><a target="_blank" href="http://wordpress.altervista.org/wordpress-social-ring-1-1-9/">WordPress Social Ring 1.1.9</a></li>
-						<li><a target="_blank" href="http://wordpress.altervista.org/wordpress-social-ring-1-1-2-shortcode/">WordPress Social Ring 1.1.2</a></li>
-						<li><a target="_blank" href="http://wordpress.altervista.org/wordpress-social-ring-1-1-template-tag-and-social-widget/">WordPress Social Ring 1.1.1</a></li>
-					</ul>
-				</div>
-				<?php if(strpos($_SERVER['HTTP_HOST'], 'altervista') == false && strpos($_SERVER['HTTP_HOST'], 'giallozafferano') == false) { ?>
-				<div class="postbox" style="min-width:180px !important;margin-top:5px;text-align:center;padding: 8px 0;">
-					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-						<input type="hidden" name="cmd" value="_s-xclick">
-						<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
-						">
-						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-						<img alt="" border="0" src="https://www.paypalobjects.com/it_IT/i/scr/pixel.gif" width="1" height="1">
-					</form>
-				</div>
-				<div style="text-align:center">
-					<a target="_blank" href="<?php _e('http://en.altervista.org/create-free-blog.html?ref=socialring',WP_SOCIAL_RING); ?>">
-								<img alt="<?php _e('Create your free blog!');?>" title="<?php _e('Create your free blog!');?>" src="http://im.altervista.org/wordpress/images/promo.gif" height="300" width="180" />
-					</a>
-				</div>
-				<?php } ?>
-			</div>
-			
+						
 		</div>
 	</div>
 	<?php

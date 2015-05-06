@@ -1,6 +1,6 @@
-=== WordPress Social Ring (Facebook Like, Google +1, ReTweet, LinkedIn and Pin It) ===
+=== Social Ring (Facebook Like, Google +1, ReTweet, LinkedIn and Pin It) ===
 Contributors: niccolo_tapparo, fabio.gioria
-Tags: Google +1, Facebook, Facebook Like, Facebook Share, Open Graph Meta Tag, Twitter, Retweet, Google+, Social Network, Linkedin, Email, Print, PDF
+Tags: Google +1, Facebook, Facebook Like, Facebook Share, Open Graph Meta Tag, Twitter, Retweet, Google+, Social Network, Linkedin, Email, Print, PDF, social buttons
 Requires at least: 3.7
 Tested up to: 4.2
 Version: 1.3.0
