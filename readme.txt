@@ -1,9 +1,8 @@
 === WordPress Social Ring (Facebook Like, Google +1, ReTweet, LinkedIn and Pin It) ===
 Contributors: niccolo_tapparo, fabio.gioria
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=niccolo%2etapparo%40gmail%2ecom&lc=IT&item_name=Niccolo%20Tapparo&item_number=1&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: Google +1, Facebook, Facebook Like, Facebook Share, Open Graph Meta Tag, Twitter, Retweet, Google+, Social Network, Linkedin, Email, Print, PDF
 Requires at least: 3.7
-Tested up to: 3.9.2
+Tested up to: 4.2
 Version: 1.3.0
 Stable tag: 1.3.0
 
@@ -17,8 +16,6 @@ From admin page you can choose which button display: Facebook Like, Facebook Sha
 
 You can also choose on which pages display them: Home, Posts, Pages, Categories and Archives.
 
-Follow me for the updates!
-http://wordpress.altervista.org/category/wordpress-social-ring/
 
 == Installation ==
 
