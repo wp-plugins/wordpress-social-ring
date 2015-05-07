@@ -315,7 +315,7 @@ class WordPress_Social_Ring {
 			}
 		}
 	
-		$html .= '<a target="_blank" href="http://bit.ly/1EiqlKc"><img src="http://i.imgur.com/SFZWTHx.png" /></a>
+		$html .= '<a target="_blank" href="http://bit.ly/1EiqlKc"><img src="http://i.imgur.com/hKU0wZd.png" /></a>
 				   </div>';
 		$html .= '<!-- Social Ring Buttons End -->'."\n";
 		return $html;
