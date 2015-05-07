@@ -287,7 +287,7 @@ class WordPress_Social_Ring_Admin {
 	}
 	
 	function register_option_page() {
-		$page = add_options_page(__('Social Sharing', WP_SOCIAL_RING), __('Social Sharing', WP_SOCIAL_RING), 'manage_options', 'wp_social_ring', array($this, 'print_option_page'));
+		$page = add_options_page(__('Social Ring', WP_SOCIAL_RING), __('Social Ring', WP_SOCIAL_RING), 'manage_options', 'wp_social_ring', array($this, 'print_option_page'));
 		add_action('admin_print_styles-' . $page, array($this, 'equeue_admin_css_js'));
 	}
 	
@@ -300,6 +300,7 @@ class WordPress_Social_Ring_Admin {
 	<div class="wrap">
 		<?php screen_icon('plugins'); ?>
 		<h2><?php _e('Social Network Settings',WP_SOCIAL_RING); ?></h2>
+		<h3>Check out <a target="_blank" href="https://wordpress.org/plugins/sumome">SumoMe Share</a> for even more Share features!</h3>
 	  
 		<div id="wp-social-ring">
 			<div class="postbox-container" style="width:80%;">
